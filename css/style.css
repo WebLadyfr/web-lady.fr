@@ -1352,7 +1352,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .about-floating-stat .stat-label {
-    font-size: 0.75rem;
+    font-size: 0.85rem;
     color: #888;
     font-weight: 500;
 }
@@ -1499,6 +1499,11 @@ h1, h2, h3, h4, h5, h6 {
 .testimonial-role {
     font-size: 0.8rem;
     color: #888;
+}
+
+.testimonials-cta {
+    margin-top: 20px;
+    text-align: center;
 }
 
 /* Carousel controls */
@@ -1684,85 +1689,32 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .contact-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 60px;
-    align-items: start;
-}
-
-.contact-form {
     display: flex;
-    flex-direction: column;
-    gap: 20px;
+    justify-content: center;
+    padding-top: 60px;
+
 }
 
-.form-group {
-    display: flex;
-    flex-direction: column;
-    gap: 6px;
+.contact-cta{
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14px;
+  align-items: center;     
+  justify-content: center; 
 }
 
-.form-row {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 20px;
+.contact-cta .small.muted {
+  width: 100%;
+  margin: 0;
+  display: flex;
+  align-items: center;     
+  justify-content: center;
 }
 
-.form-group label {
-    font-size: 0.9rem;
-    font-weight: 600;
-    color: #1858AD;
-}
-
-.form-group input,
-.form-group select,
-.form-group textarea {
-    padding: 14px 18px;
-    border: 2px solid rgba(24, 88, 173, 0.12);
-    border-radius: 12px;
-    font-family: 'Inter', sans-serif;
-    font-size: 1rem;
-    color: #333;
-    background: #F4F4F4;
-    transition: all 0.3s ease;
-    outline: none;
-}
-
-.form-group input:focus,
-.form-group select:focus,
-.form-group textarea:focus {
-    border-color: #1858AD;
-    background: #fff;
-    box-shadow: 0 0 0 4px rgba(24, 88, 173, 0.08);
-}
-
-.form-group input.error,
-.form-group select.error,
-.form-group textarea.error {
-    border-color: #e74c3c;
-}
-
-.form-group textarea {
-    min-height: 140px;
-    resize: vertical;
-}
-
-.form-error {
-    font-size: 0.8rem;
-    color: #e74c3c;
-    display: none;
-}
-
-.form-group input.error ~ .form-error,
-.form-group select.error ~ .form-error,
-.form-group textarea.error ~ .form-error {
-    display: block;
-}
-
-/* Contact Info */
 .contact-info {
     display: flex;
     flex-direction: column;
+    justify-content: center;
     gap: 28px;
 }
 
@@ -1857,6 +1809,19 @@ h1, h2, h3, h4, h5, h6 {
 /* ============================================
    🦶 FOOTER
    ============================================ */
+
+.about-illustration {
+    background-color: transparent;
+    width: 100%;
+    max-width: 600px;
+    animation: floatAbout 4s ease-in-out infinite;
+    filter: drop-shadow(0 20px 40px rgba(24, 88, 173, 0.3));
+}
+
+@keyframes floatAbout {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-15px); }
+}
 
 .site-footer {
     position: relative;
