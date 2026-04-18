@@ -2659,3 +2659,20 @@ a.contact-item:hover {
     border: 1px solid #000;
   }
 }
+
+/* ============================================
+   NAVBAR pleine sur les pages légales
+============================================ */
+.legal-page .nav {
+    position: sticky;
+    top: 0;
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    box-shadow: 0 2px 20px rgba(0, 0, 0, 0.08);
+}
+
+/* Décale le contenu pour qu'il ne passe pas sous la navbar */
+.legal-page .legal-section {
+    padding-top: 40px;
+}
