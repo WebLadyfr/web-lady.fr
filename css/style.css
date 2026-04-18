@@ -399,6 +399,73 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 /* ============================================
+   📱 RESPONSIVE - MENU MOBILE PLEIN ÉCRAN
+   ============================================ */
+@media (max-width: 1024px) {
+
+    /* Affiche le burger */
+    .nav-hamburger {
+        display: flex;
+    }
+
+    /* 🎯 Menu mobile : plein écran */
+    .nav-menu {
+        position: fixed;
+        top: 0;
+        right: -100%;
+        width: 100%;
+        max-width: 100%;
+        height: 100vh;
+        
+        background: #ffffff; /* ✅ Fond blanc OPAQUE */
+        
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 48px; /* ✅ Espacement généreux entre items */
+        
+        padding: 100px 32px 40px;
+        margin: 0;
+        list-style: none;
+        
+        transition: right 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        z-index: 1000;
+    }
+
+    /* Menu ouvert */
+    .nav-menu.open,
+    .nav-menu.active {
+        right: 0;
+    }
+
+    /* Liens */
+    .nav-menu li {
+        list-style: none;
+    }
+
+    .nav-menu a {
+        font-size: 1.5rem;
+        font-weight: 600;
+        color: #1a1a1a;
+        text-decoration: none;
+        transition: color 0.3s ease;
+        letter-spacing: 0.5px;
+    }
+
+    .nav-menu a:hover,
+    .nav-menu a.active {
+        color: #1858AD;
+    }
+
+    /* Bloque le scroll quand menu ouvert */
+    body.menu-open {
+        overflow: hidden;
+    }
+}
+
+
+/* ============================================
    HERO SECTION
    ============================================ */
 .hero {
@@ -549,6 +616,7 @@ h1, h2, h3, h4, h5, h6 {
 .hero-ctas {
     display: flex;
     flex-wrap: wrap;
+    align-items: center;
     gap: 16px;
 }
 
@@ -1072,45 +1140,63 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 /* ============================================
-   📱 RESPONSIVE
+   📱 RESPONSIVE - FLEXBOX
    ============================================ */
 
+/* 📱 TABLETTE : 2 par ligne */
 @media (max-width: 1024px) {
     .offers-grid {
-        grid-template-columns: repeat(2, 1fr);
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
         max-width: 700px;
+        margin: 0 auto;
+        gap: 24px;
     }
-    
+
+    .offer-card,
     .offer-card:nth-child(1),
     .offer-card:nth-child(5) {
-        max-width: 100%;
+        flex: 0 1 calc(50% - 12px); /* 2 par ligne (12px = moitié du gap) */
+        max-width: calc(50% - 12px);
+        width: auto;
     }
-    
+
     .offer-card.offer-popular {
         transform: scale(1);
     }
-    
+
     .offer-card.offer-popular:hover {
         transform: translateY(-8px);
     }
 }
 
+/* 📱 MOBILE : 1 par ligne */
 @media (max-width: 768px) {
     .offers-grid {
-        grid-template-columns: 1fr;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
         max-width: 400px;
+        margin: 0 auto;
+        gap: 24px;
     }
-    
+
     .offer-card,
     .offer-card:nth-child(1),
     .offer-card:nth-child(5) {
+        flex: 0 1 auto;
+        width: 100%;
         max-width: 100%;
-        order: unset !important;
     }
-    
-    /* Mobile : Vitrine d'abord */
-    .offer-card:nth-child(3) { order: -1 !important; }
-    
+
+ /* 🎯 Ordre mobile personnalisé */
+    .offer-card:nth-child(3) { order: 1 !important; } /* Vitrine (1ère) */
+    .offer-card:nth-child(2) { order: 2 !important; } /* Landing (2ème) */
+    .offer-card:nth-child(4) { order: 3 !important; } /* E-business (3ème) */
+    .offer-card:nth-child(1) { order: 4 !important; } /* Audit (4ème) ✅ */
+    .offer-card:nth-child(5) { order: 5 !important; } /* Maintenance (5ème) */
+
     .offer-card.offer-popular {
         transform: none;
     }
@@ -1326,11 +1412,13 @@ h1, h2, h3, h4, h5, h6 {
     position: relative;
 }
 
-.about-illustration svg {
+.about-illustration {
     width: 100%;
     max-width: 400px;
     margin: 0 auto;
     display: block;
+    position: relative;
+    right: -30%;
 }
 
 .about-floating-stat {
@@ -1728,7 +1816,17 @@ h1, h2, h3, h4, h5, h6 {
     color: #666;
     line-height: 1.7;
 }
+/* Les contact-item deviennent des liens cliquables */
+a.contact-item {
+    text-decoration: none;
+    color: inherit;
+    cursor: pointer;
+}
 
+a.contact-item:hover {
+    transform: translateX(4px);
+    transition: transform 0.3s ease;
+}
 .contact-item {
     display: flex;
     align-items: center;
@@ -1806,6 +1904,8 @@ h1, h2, h3, h4, h5, h6 {
     transition: stroke 0.3s ease;
 }
 
+
+
 /* ============================================
    🦶 FOOTER
    ============================================ */
@@ -1850,10 +1950,10 @@ h1, h2, h3, h4, h5, h6 {
 /* ---- Grid 4 colonnes ---- */
 .footer-grid {
     display: grid;
-    grid-template-columns: 1.4fr 1fr 1fr 1.2fr;
-    gap: 40px;
-    margin-bottom: 50px;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 2rem;
 }
+
 
 /* ---- Colonne principale ---- */
 .footer-logo {
@@ -2232,11 +2332,13 @@ h1, h2, h3, h4, h5, h6 {
         flex-direction: column;
     }
 
-    .hero-ctas .btn {
-        width: 100%;
-        justify-content: center;
+     .hero-ctas .btn{
+        padding: 12px 14px;
+        max-width: 260px;
+        width: auto;
+        white-space: nowrap;
+        font-size: 0.95rem;
     }
-
     /* Trust */
     .trust-item {
         font-size: 0.85rem;
@@ -2327,6 +2429,20 @@ h1, h2, h3, h4, h5, h6 {
     .testimonial-card blockquote p {
         font-size: 0.95rem;
     }
+     .testimonials-carousel .carousel-track {
+    /* si tu utilises display:flex pour le track */
+    /* (ne mets pas width:100% si tu l'as déjà) */
+    align-items: stretch;
+  }
+
+  .testimonials-carousel .testimonial-card {
+    flex: 0 0 100%;       /* chaque carte prend 100% de la largeur */
+    width: 100%;          /* sécurité */
+    margin-left: 0;       /* si tu as un gap/margin */
+    margin-right: 0;
+    display: flex;
+    flex-direction: column;
+}
 
     /* FAQ */
     .faq-question {
@@ -2352,6 +2468,11 @@ h1, h2, h3, h4, h5, h6 {
     .contact-grid {
         grid-template-columns: 1fr;
         gap: 40px;
+    }
+
+    .contact-cta .btn {
+        padding: 12px 20px;
+        max-width: 280px;
     }
 
     .form-row {

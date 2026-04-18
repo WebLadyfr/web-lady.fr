@@ -357,54 +357,7 @@ if (document.readyState === 'loading') {
         }
     });
 
-    // ============================================
-    // CONTACT FORM VALIDATION
-    // ============================================
-    const contactForm = document.getElementById('contactForm');
 
-    if (contactForm) {
-        contactForm.addEventListener('submit', (e) => {
-            e.preventDefault();
-            let isValid = true;
-
-            // Clear errors
-            contactForm.querySelectorAll('.error').forEach(el => el.classList.remove('error'));
-
-            // Validate required fields
-            const requiredFields = contactForm.querySelectorAll('[required]');
-            requiredFields.forEach(field => {
-                if (!field.value.trim()) {
-                    field.classList.add('error');
-                    isValid = false;
-                }
-            });
-
-            // Validate email
-            const emailField = contactForm.querySelector('[type="email"]');
-            if (emailField && emailField.value) {
-                const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-                if (!emailRegex.test(emailField.value)) {
-                    emailField.classList.add('error');
-                    isValid = false;
-                }
-            }
-
-            if (isValid) {
-                const submitBtn = contactForm.querySelector('button[type="submit"]');
-                const originalText = submitBtn.textContent;
-                submitBtn.textContent = '✅ Message envoyé !';
-                submitBtn.disabled = true;
-                submitBtn.style.background = '#27ae60';
-
-                setTimeout(() => {
-                    contactForm.reset();
-                    submitBtn.textContent = originalText;
-                    submitBtn.disabled = false;
-                    submitBtn.style.background = '';
-                }, 3000);
-            }
-        });
-    }
 
     // ============================================
     // SMOOTH SCROLL FOR ANCHOR LINKS
