@@ -901,6 +901,11 @@ h1, h2, h3, h4, h5, h6 {
 /* ============================================
    💰 OFFERS GRID - LAYOUT
    ============================================ */
+.p-offres{
+    text-align: center;
+    padding: 0 60px 0 60px;
+    font-style: italic;
+}
 
 .offers-grid {
     display: grid;
@@ -1412,13 +1417,13 @@ h1, h2, h3, h4, h5, h6 {
     position: relative;
 }
 
-.about-illustration {
+.about-illustration-about{
     width: 100%;
     max-width: 400px;
     margin: 0 auto;
     display: block;
     position: relative;
-    right: -30%;
+    right: -5em;
 }
 
 .about-floating-stat {
@@ -1916,6 +1921,8 @@ a.contact-item:hover {
     max-width: 600px;
     animation: floatAbout 4s ease-in-out infinite;
     filter: drop-shadow(0 20px 40px rgba(24, 88, 173, 0.3));
+    position: relative;
+    right: 5em;
 }
 
 @keyframes floatAbout {
@@ -2502,11 +2509,6 @@ a.contact-item:hover {
     transition: width 1.2s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-.skill-bar-fill.animated {
-    /* width is set via JS */
-}
-
-/* Counter animation - handled by JS */
 
 /* Prefers reduced motion */
 @media (prefers-reduced-motion: reduce) {
@@ -2676,3 +2678,4 @@ a.contact-item:hover {
 .legal-page .legal-section {
     padding-top: 40px;
 }
+
