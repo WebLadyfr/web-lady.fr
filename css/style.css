@@ -387,6 +387,24 @@ h1, h2, h3, h4, h5, h6 {
    ============================================ */
 @media (max-width: 1024px) {
 
+        /* Le logo reste visible au-dessus du menu plein écran */
+    .logo {
+        position: relative;
+        z-index: 1001; /* au-dessus du menu (999) */
+    }
+
+    .logo img {
+        height: 45px;
+        width: auto;
+    }
+
+    /* Hamburger également au-dessus */
+    .nav-hamburger {
+        display: flex;
+        position: relative;
+        z-index: 1001;
+    }
+
     /* Affiche le burger */
     .nav-hamburger {
         display: flex;
@@ -402,8 +420,8 @@ h1, h2, h3, h4, h5, h6 {
         display: flex;
         flex-direction: column;
         align-items: center;
-        justify-content: center;
-        gap: 10px;
+        justify-content: start;
+        padding-top: 100px;
         position: fixed;
         top: 0;
         right: -100%;
@@ -432,7 +450,7 @@ h1, h2, h3, h4, h5, h6 {
         color: #1858AD;
         text-decoration: none;
         letter-spacing: 0.5px;
-        padding: 14px 28px;
+        padding: 14px 20px;
         transition: color 0.3s ease;
     }
 
@@ -445,6 +463,7 @@ h1, h2, h3, h4, h5, h6 {
     body.menu-open {
         overflow: hidden;
     }
+
 }
 
 
