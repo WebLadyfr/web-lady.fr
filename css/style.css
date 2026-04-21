@@ -383,7 +383,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 /* ============================================
-   📱 RESPONSIVE - MENU MOBILE PLEIN ÉCRAN
+   📱 RESPONSIVE - TABLETTE & MOBILE
    ============================================ */
 @media (max-width: 1024px) {
 
@@ -392,32 +392,29 @@ h1, h2, h3, h4, h5, h6 {
         display: flex;
     }
 
-    /* 🎯 Menu mobile : plein écran */
+    /* Cache le CTA en mobile */
+    .nav-cta {
+        display: none;
+    }
+
+    /* 🎯 Menu mobile : plein écran, caché par défaut */
     .nav-menu {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 10px;
         position: fixed;
         top: 0;
         right: -100%;
         width: 100%;
-        max-width: 100%;
         height: 100vh;
-        
-        background: #ffffff; /* ✅ Fond blanc OPAQUE */
-        
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        gap: 48px; /* ✅ Espacement généreux entre items */
-        
-        padding: 100px 32px 40px;
-        margin: 0;
-        list-style: none;
-        
+        background-color: #fff;
+        z-index: 999;
         transition: right 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-        z-index: 1000;
     }
 
-    /* Menu ouvert */
+    /* Menu ouvert : slide depuis la droite */
     .nav-menu.open,
     .nav-menu.active {
         right: 0;
@@ -428,18 +425,20 @@ h1, h2, h3, h4, h5, h6 {
         list-style: none;
     }
 
-    .nav-menu a {
+    .nav-menu a,
+    .nav-link {
         font-size: 1.5rem;
         font-weight: 600;
-        color: #1a1a1a;
+        color: #1858AD;
         text-decoration: none;
-        transition: color 0.3s ease;
         letter-spacing: 0.5px;
+        padding: 14px 28px;
+        transition: color 0.3s ease;
     }
 
     .nav-menu a:hover,
     .nav-menu a.active {
-        color: #1858AD;
+        color: #0d3d7a;
     }
 
     /* Bloque le scroll quand menu ouvert */
@@ -447,6 +446,7 @@ h1, h2, h3, h4, h5, h6 {
         overflow: hidden;
     }
 }
+
 
 
 /* ============================================
@@ -2187,39 +2187,6 @@ a.contact-item:hover {
    RESPONSIVE - TABLETTE
    ============================================ */
 @media (max-width: 1024px) {
-    .nav-menu {
-        display: none;
-        position: fixed;
-        top: 0;
-        left: 0;
-        right: 0;
-        bottom: 0;
-        background: rgba(244, 244, 244, 0.98);
-        backdrop-filter: blur(20px);
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-        gap: 8px;
-        z-index: 999;
-    }
-
-    .nav-menu.open {
-        display: flex;
-    }
-
-    .nav-link {
-        font-size: 1.2rem;
-        padding: 14px 28px;
-    }
-
-    .nav-hamburger {
-        display: flex;
-    }
-
-    .nav-cta {
-        display: none;
-    }
-
     .hero-illustration {
         opacity: 0.25;
         width: 60%;
