@@ -286,14 +286,14 @@ h1, h2, h3, h4, h5, h6 {
 .nav.scrolled {
     backdrop-filter: blur(20px);
     -webkit-backdrop-filter: blur(20px);
-    padding: 10px 0;
+    padding: 0;
     box-shadow: 0 2px 30px rgba(24, 89, 173, 0.034);
 }
 
 .nav-container {
     max-width: 1200px;
     margin: 0 auto;
-    padding: 0 24px;
+    padding: 0 10px;
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -409,10 +409,16 @@ h1, h2, h3, h4, h5, h6 {
         display: flex;
     }
 
-    /* Cache le CTA en mobile */
-    .nav-cta {
-        display: none;
-    }
+    .nav-cta-item {
+        margin-top: 20px;
+        list-style: none;
+}
+
+    .nav-menu .nav-cta {
+        font-size: 1.2rem;
+        padding: 14px 36px;
+        color:#fff;
+}
 
     /* 🎯 Menu mobile : plein écran, caché par défaut */
     .nav-menu {
