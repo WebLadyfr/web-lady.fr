@@ -354,7 +354,7 @@ h1, h2, h3, h4, h5, h6 {
     display: none;
     flex-direction: column;
     gap: 6px;
-    padding: 8px;
+    padding: 15px;
     z-index: 1001;
     cursor: pointer;
 }
@@ -402,11 +402,6 @@ h1, h2, h3, h4, h5, h6 {
         display: flex;
         position: relative;
         z-index: 1001;
-    }
-
-    /* Affiche le burger */
-    .nav-hamburger {
-        display: flex;
     }
 
     .nav-cta-item {
