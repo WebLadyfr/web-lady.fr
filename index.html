@@ -26,20 +26,28 @@
     <link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
 
     <!-- Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <!-- Inter critique -->
-    <link rel="stylesheet"
-        href="https://fonts.googleapis.com/css2?family=Inter:wght@500;600;700;800;900&display=swap">
+     <!-- Preload Inter font -->
+     <link rel="preload" href="/assets/fonts/inter-v20-latin-500.woff2"
+        as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="/assets/fonts/inter-v20-latin-600.woff2"
+        as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="/assets/fonts/inter-v20-latin-700.woff2"
+        as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="/assets/fonts/inter-v20-latin-800.woff2"
+        as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="/assets/fonts/inter-v20-latin-900.woff2"
+        as="font" type="font/woff2" crossorigin>
+     
+        <!-- Preload Playfair Display font -->
+    <link rel="preload" href="/assets/fonts/playfair-display-v40-latin-regular.woff2"
+        as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="/assets/fonts/playfair-display-v40-latin-600.woff2"
+        as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="/assets/fonts/playfair-display-v40-latin-700.woff2"
+        as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="/assets/fonts/playfair-display-v40-latin-800.woff2"
+        as="font" type="font/woff2" crossorigin>
 
-    <!-- Playfair différé -->
-    <link rel="stylesheet"
-        href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700;800&display=swap"
-        media="print" onload="this.media='all'">
-    <noscript>
-    <link rel="stylesheet"
-        href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600&display=swap&display=swap">
-    </noscript>
     <!-- CSS -->
     <link rel="preload" href="css/style.css" as="style">
     <link rel="stylesheet" href="css/style.css" media="print" onload="this.media='all'">
@@ -195,14 +203,14 @@
 </a>
 
 
-            <ul class="nav-menu" id="navMenu" role="menubar">
-                <li role="none"><a href="#accueil" class="nav-link active" role="menuitem">Accueil</a></li>
-                <li role="none"><a href="#probleme" class="nav-link" role="menuitem">Pourquoi</a></li>
-                <li role="none"><a href="#methode" class="nav-link" role="menuitem">Méthode</a></li>
-                <li role="none"><a href="#offres" class="nav-link" role="menuitem">Offres</a></li>
-                <li role="none"><a href="#portfolio" class="nav-link" role="menuitem">Portfolio</a></li>
-                <li role="none"><a href="#apropos" class="nav-link" role="menuitem">À propos</a></li>
-                <li role="none"><a href="#temoignages" class="nav-link" role="menuitem">Avis</a></li>
+            <ul class="nav-menu" id="navMenu">
+                <li><a href="#accueil" class="nav-link active">Accueil</a></li>
+                <li><a href="#probleme" class="nav-link">Pourquoi</a></li>
+                <li><a href="#methode" class="nav-link">Méthode</a></li>
+                <li><a href="#offres" class="nav-link">Offres</a></li>
+                <li><a href="#portfolio" class="nav-link">Portfolio</a></li>
+                <li><a href="#apropos" class="nav-link">À propos</a></li>
+                <li><a href="#temoignages" class="nav-link">Avis</a></li>
                 <li class="nav-cta-item">
                     <a href="https://wa.me/33767018313" class="nav-cta ripple">Je veux mon site</a>
                 </li>
@@ -243,15 +251,14 @@
 
             <!-- Hero Content -->
     <div class="hero-content parallax-layer" data-parallax-speed="0.08">
-                <h1 id="hero-title" class="scroll-reveal">
+                <h1 id="hero-title" class="hero-title">
     Création de sites web qui <span class="text-gradient">transforment</span><br>
     tes visiteurs en <span class="text-gradient">clients.</span><br>
-    <span class="hero-h1-small">Stratégie, design et SEO réunis pour que ton site bosse 24h/24 à la place d'un commercial.</span>
 </h1>
 
 
                 <p class="hero-subtitle scroll-reveal">
-                    Ton business mérite un site qui bosse 24h/24. Stratégie, design et code — tout est pensé pour que tes visiteurs deviennent des clients.
+                    Ton business mérite un site qui bosse 24h/24. Stratégie, design, code et SEO - tout est pensé pour que tes visiteurs deviennent des clients.
                 </p>
 
                 <div class="hero-ctas scroll-reveal">
@@ -1026,7 +1033,7 @@ Merci encore pour votre travail.”
       </p>
     </div>
 
-    <div class="faq-list" role="list">
+    <div class="faq-list">
       <!-- Item 1 -->
       <div class="faq-item " data-faq-item>
         <button
