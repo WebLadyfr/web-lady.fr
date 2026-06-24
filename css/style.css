@@ -3,11 +3,11 @@
 ============================================ */
 /* inter-500 - latin */
 @font-face {
-  font-display: swap; /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
+  font-display: swap; 
   font-family: 'Inter';
   font-style: normal;
   font-weight: 500;
-  src: url('../fonts/inter-v20-latin-500.woff2') format('woff2'); /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
+  src: url('../assets/fonts/inter-v20-latin-500.woff2') format('woff2'); /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
 }
 /* inter-600 - latin */
 @font-face {
@@ -15,7 +15,7 @@
   font-family: 'Inter';
   font-style: normal;
   font-weight: 600;
-  src: url('../fonts/inter-v20-latin-600.woff2') format('woff2'); /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
+  src: url('../assets/fonts/inter-v20-latin-600.woff2') format('woff2'); /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
 }
 /* inter-700 - latin */
 @font-face {
@@ -23,7 +23,7 @@
   font-family: 'Inter';
   font-style: normal;
   font-weight: 700;
-  src: url('../fonts/inter-v20-latin-700.woff2') format('woff2'); /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
+  src: url('../assets/fonts/inter-v20-latin-700.woff2') format('woff2'); /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
 }
 /* inter-800 - latin */
 @font-face {
@@ -31,7 +31,7 @@
   font-family: 'Inter';
   font-style: normal;
   font-weight: 800;
-  src: url('../fonts/inter-v20-latin-800.woff2') format('woff2'); /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
+  src: url('../assets/fonts/inter-v20-latin-800.woff2') format('woff2'); /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
 }
 /* inter-900 - latin */
 @font-face {
@@ -39,10 +39,41 @@
   font-family: 'Inter';
   font-style: normal;
   font-weight: 900;
-  src: url('../fonts/inter-v20-latin-900.woff2') format('woff2'); /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
+  src: url('../assets/fonts/inter-v20-latin-900.woff2') format('woff2'); /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
 }
 
-
+/* playfair-display-regular - latin */
+@font-face {
+  font-display: swap; /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
+  font-family: 'Playfair Display';
+  font-style: normal;
+  font-weight: 400;
+  src: url('../assets/fonts/playfair-display-v40-latin-regular.woff2') format('woff2'); /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
+}
+/* playfair-display-600 - latin */
+@font-face {
+  font-display: swap; /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
+  font-family: 'Playfair Display';
+  font-style: normal;
+  font-weight: 600;
+  src: url('../assets/fonts/playfair-display-v40-latin-600.woff2') format('woff2'); /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
+}
+/* playfair-display-700 - latin */
+@font-face {
+  font-display: swap; /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
+  font-family: 'Playfair Display';
+  font-style: normal;
+  font-weight: 700;
+  src: url('../assets/fonts/playfair-display-v40-latin-700.woff2') format('woff2'); /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
+}
+/* playfair-display-800 - latin */
+@font-face {
+  font-display: swap; /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
+  font-family: 'Playfair Display';
+  font-style: normal;
+  font-weight: 800;
+  src: url('../assets/fonts/playfair-display-v40-latin-800.woff2') format('woff2'); /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
+}
 
 :root {
     --primary: #1858AD;
@@ -63,38 +94,7 @@
     --font-display: 'Playfair Display', Georgia, serif;
 }
 
-/* playfair-display-regular - latin */
-@font-face {
-  font-display: swap; /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
-  font-family: 'Playfair Display';
-  font-style: normal;
-  font-weight: 400;
-  src: url('../fonts/playfair-display-v40-latin-regular.woff2') format('woff2'); /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
-}
-/* playfair-display-600 - latin */
-@font-face {
-  font-display: swap; /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
-  font-family: 'Playfair Display';
-  font-style: normal;
-  font-weight: 600;
-  src: url('../fonts/playfair-display-v40-latin-600.woff2') format('woff2'); /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
-}
-/* playfair-display-700 - latin */
-@font-face {
-  font-display: swap; /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
-  font-family: 'Playfair Display';
-  font-style: normal;
-  font-weight: 700;
-  src: url('../fonts/playfair-display-v40-latin-700.woff2') format('woff2'); /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
-}
-/* playfair-display-800 - latin */
-@font-face {
-  font-display: swap; /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
-  font-family: 'Playfair Display';
-  font-style: normal;
-  font-weight: 800;
-  src: url('../fonts/playfair-display-v40-latin-800.woff2') format('woff2'); /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
-}
+
 
 /* ============================================
    WEB-LADY - STYLE COMPLET
