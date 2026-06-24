@@ -262,75 +262,62 @@ document.addEventListener('DOMContentLoaded', () => {
     const carouselDots = document.querySelectorAll('.carousel-dot');
 
     if (carouselTrack && prevBtn && nextBtn) {
-        let currentSlide = 0;
-        const cards = Array.from(carouselTrack.querySelectorAll('.testimonial-card'));
-        let cardsPerView = getCardsPerView();
-        let cardWidth = 0; // Sera calculé une seule fois
+    let currentSlide = 0;
+    const cards = Array.from(carouselTrack.querySelectorAll('.testimonial-card'));
+    let cardsPerView = getCardsPerView();
+    let cardWidth = 0;
 
-        function getCardsPerView() {
-            if (window.innerWidth <= 640) return 1;
-            if (window.innerWidth <= 1024) return 2;
-            return 3;
-        }
+    function getCardsPerView() {
+        if (window.innerWidth <= 640) return 1;
+        if (window.innerWidth <= 1024) return 2;
+        return 3;
+    }
 
-        function getTotalSlides() {
-            return Math.max(0, cards.length - cardsPerView);
-        }
+    function getTotalSlides() {
+        return Math.max(0, cards.length - cardsPerView);
+    }
 
-        function measureCardWidth() {
-            // Lecture DOM isolée, appelée seulement quand nécessaire
-            if (cards.length > 0) {
-                cardWidth = cards[0].offsetWidth + 24; // 24 = gap
-            }
-        }
-
-        function updateCarousel() {
-            if (cards.length === 0) return;
-            // Utilise la valeur pré-calculée (pas de lecture DOM ici)
-            carouselTrack.style.transform = `translateX(-${currentSlide * cardWidth}px)`;
-            carouselDots.forEach((dot, i) => {
-                dot.classList.toggle('active', i === currentSlide);
-            });
-        }
-
-        function goTo(index) {
-            currentSlide = Math.max(0, Math.min(index, getTotalSlides()));
-            updateCarousel();
-        }
-
-        // Lecture initiale
-        measureCardWidth();
-
-        nextBtn.addEventListener('click', () => goTo(currentSlide + 1));
-        prevBtn.addEventListener('click', () => goTo(currentSlide - 1));
-
+    function updateCarousel() {
+        if (cards.length === 0 || cardWidth === 0) return;
+        carouselTrack.style.transform = `translateX(-${currentSlide * cardWidth}px)`;
         carouselDots.forEach((dot, i) => {
-            dot.addEventListener('click', () => goTo(i));
-        });
-
-        // Auto-play
-        let autoPlay = setInterval(() => {
-            goTo(currentSlide < getTotalSlides() ? currentSlide + 1 : 0);
-        }, 5000);
-
-        carouselTrack.addEventListener('mouseenter', () => clearInterval(autoPlay));
-        carouselTrack.addEventListener('mouseleave', () => {
-            autoPlay = setInterval(() => {
-                goTo(currentSlide < getTotalSlides() ? currentSlide + 1 : 0);
-            }, 5000);
-        });
-
-        // Resize : re-mesure la carte après redimensionnement
-        let resizeTimer;
-        window.addEventListener('resize', () => {
-            clearTimeout(resizeTimer);
-            resizeTimer = setTimeout(() => {
-                cardsPerView = getCardsPerView();
-                measureCardWidth(); // Re-lecture DOM une seule fois
-                goTo(Math.min(currentSlide, getTotalSlides()));
-            }, 150);
+            dot.classList.toggle('active', i === currentSlide);
         });
     }
+
+    function goTo(index) {
+        currentSlide = Math.max(0, Math.min(index, getTotalSlides()));
+        updateCarousel();
+    }
+
+    // ✅ ResizeObserver — pas de offsetWidth, zéro reflow forcé
+    if ('ResizeObserver' in window && cards.length > 0) {
+        const ro = new ResizeObserver(entries => {
+            cardWidth = entries[0].contentRect.width + 24;
+            cardsPerView = getCardsPerView();
+            goTo(Math.min(currentSlide, getTotalSlides()));
+        });
+        ro.observe(cards[0]);
+    }
+
+    nextBtn.addEventListener('click', () => goTo(currentSlide + 1));
+    prevBtn.addEventListener('click', () => goTo(currentSlide - 1));
+
+    carouselDots.forEach((dot, i) => {
+        dot.addEventListener('click', () => goTo(i));
+    });
+
+    let autoPlay = setInterval(() => {
+        goTo(currentSlide < getTotalSlides() ? currentSlide + 1 : 0);
+    }, 5000);
+
+    carouselTrack.addEventListener('mouseenter', () => clearInterval(autoPlay));
+    carouselTrack.addEventListener('mouseleave', () => {
+        autoPlay = setInterval(() => {
+            goTo(currentSlide < getTotalSlides() ? currentSlide + 1 : 0);
+        }, 5000);
+    });
+}
 
 
     // ============================================

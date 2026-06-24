@@ -1372,11 +1372,13 @@ Merci encore pour votre travail.”
   </div>
 </div>
 
-<script src="js/cookies.js"></script>
-        <script src="js/main.js"></script>
-        <script>
-            console.log('✅ HTML chargé, script inline fonctionne');
-        </script>
+<!-- CSS cookies en preload + media print trick -->
+<link rel="preload" href="/css/cookies.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+<noscript><link rel="stylesheet" href="/css/cookies.css"></noscript>
+
+<!-- JS en defer — s'exécute après le parsing HTML, sans bloquer -->
+<script src="/js/cookies.js" defer></script>
+<script src="/js/main.js" defer></script>
 
 
     </body>
