@@ -290,6 +290,17 @@ document.addEventListener('DOMContentLoaded', () => {
         updateCarousel();
     }
 
+    const ro = new ResizeObserver(entries => {
+    // Toutes les lectures EN PREMIER
+    const width = entries[0].contentRect.width;
+    const newCardsPerView = getCardsPerView();
+    
+    // Toutes les écritures ENSUITE
+    cardWidth = width + 24;
+    cardsPerView = newCardsPerView;
+    goTo(Math.min(currentSlide, getTotalSlides()));
+});
+
     // ✅ ResizeObserver — pas de offsetWidth, zéro reflow forcé
     if ('ResizeObserver' in window && cards.length > 0) {
         const ro = new ResizeObserver(entries => {
