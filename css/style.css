@@ -1978,16 +1978,6 @@ a.contact-item:hover {
    🦶 FOOTER
    ============================================ */
 
-.about-illustration {
-    background-color: transparent;
-    width: 100%;
-    max-width: 600px;
-    animation: floatAbout 4s ease-in-out infinite;
-    filter: drop-shadow(0 20px 40px rgba(24, 88, 173, 0.3));
-    position: relative;
-    right: 5em;
-}
-
 @keyframes floatAbout {
     0%, 100% { transform: translateY(0); }
     50% { transform: translateY(-15px); }
