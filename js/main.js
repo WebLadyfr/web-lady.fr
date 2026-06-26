@@ -252,19 +252,18 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
 
-    // ============================================
-    // TESTIMONIALS CAROUSEL - OPTIMISÉ
-    // offsetWidth lu une seule fois au bon moment
-    // ============================================
-    const carouselTrack = document.getElementById('carouselTrack');
-    const prevBtn = document.getElementById('carouselPrev');
-    const nextBtn = document.getElementById('carouselNext');
-    const carouselDots = document.querySelectorAll('.carousel-dot');
+// ============================================
+// TESTIMONIALS CAROUSEL - OPTIMISÉ
+// ============================================
+const carouselTrack = document.getElementById('carouselTrack');
+const prevBtn = document.getElementById('carouselPrev');
+const nextBtn = document.getElementById('carouselNext');
+const carouselDots = document.querySelectorAll('.carousel-dot');
 
-    if (carouselTrack && prevBtn && nextBtn) {
+if (carouselTrack && prevBtn && nextBtn) {
     let currentSlide = 0;
     const cards = Array.from(carouselTrack.querySelectorAll('.testimonial-card'));
-    let cardsPerView = getCardsPerView();
+    let cardsPerView = 3;
     let cardWidth = 0;
 
     function getCardsPerView() {
@@ -290,22 +289,12 @@ document.addEventListener('DOMContentLoaded', () => {
         updateCarousel();
     }
 
-    const ro = new ResizeObserver(entries => {
-    // Toutes les lectures EN PREMIER
-    const width = entries[0].contentRect.width;
-    const newCardsPerView = getCardsPerView();
-    
-    // Toutes les écritures ENSUITE
-    cardWidth = width + 24;
-    cardsPerView = newCardsPerView;
-    goTo(Math.min(currentSlide, getTotalSlides()));
-});
-
-    // ✅ ResizeObserver — pas de offsetWidth, zéro reflow forcé
     if ('ResizeObserver' in window && cards.length > 0) {
         const ro = new ResizeObserver(entries => {
-            cardWidth = entries[0].contentRect.width + 24;
-            cardsPerView = getCardsPerView();
+            const width = entries[0].contentRect.width;
+            const newCardsPerView = getCardsPerView();
+            cardWidth = width + 24;
+            cardsPerView = newCardsPerView;
             goTo(Math.min(currentSlide, getTotalSlides()));
         });
         ro.observe(cards[0]);
@@ -329,7 +318,6 @@ document.addEventListener('DOMContentLoaded', () => {
         }, 5000);
     });
 }
-
 
     // ============================================
     // FAQ ACCORDION
@@ -360,23 +348,35 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 });
-    // ============================================
-    // SMOOTH SCROLL FOR ANCHOR LINKS
-    // ============================================
-    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-        anchor.addEventListener('click', function (e) {
-            const targetId = this.getAttribute('href');
-            if (targetId === '#') return;
 
-            const target = document.querySelector(targetId);
-            if (target) {
-                e.preventDefault();
-                const navHeight = nav ? nav.offsetHeight : 0;
-                const targetPos = target.getBoundingClientRect().top + window.pageYOffset - navHeight - 20;
-                window.scrollTo({ top: targetPos, behavior: 'smooth' });
-            }
-        });
+// ============================================
+// SMOOTH SCROLL FOR ANCHOR LINKS
+// ============================================
+let navHeight = 0; // pas de lecture DOM ici
+
+if (nav && 'ResizeObserver' in window) {
+    const navRo = new ResizeObserver(entries => {
+        navHeight = entries[0].contentRect.height;
     });
+    navRo.observe(nav);
+} else if (nav) {
+    // Fallback si ResizeObserver non supporté
+    navHeight = nav.getBoundingClientRect().height;
+}
+
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function (e) {
+        const targetId = this.getAttribute('href');
+        if (targetId === '#') return;
+
+        const target = document.querySelector(targetId);
+        if (target) {
+            e.preventDefault();
+            const targetPos = target.getBoundingClientRect().top + window.pageYOffset - navHeight - 20;
+            window.scrollTo({ top: targetPos, behavior: 'smooth' });
+        }
+    });
+});
 
 
     // ============================================

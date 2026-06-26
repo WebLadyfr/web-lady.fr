@@ -1,0 +1,13 @@
+# Dépendances
+node_modules/
+
+# Système
+.DS_Store
+Thumbs.db
+
+# Logs
+npm-debug.log*
+
+# Build local
+*.min.css
+*.min.js

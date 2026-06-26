@@ -115,6 +115,7 @@ html {
     scroll-behavior: smooth;
     font-size: 16px;
     -webkit-text-size-adjust: 100%;
+    scrollbar-gutter: stable;
 }
 
 body {
@@ -606,20 +607,6 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 /* Illustration */
-.hero-illustration {
-    position: absolute;
-    right: -5%;
-    bottom: 5%;
-    width: 50%;
-    max-width: 550px;
-    z-index: 1;
-    opacity: 0.5;
-}
-
-.illustration-woman {
-    width: 100%;
-    height: auto;
-}
 
 .cursor-blink {
     animation: cursor-blink-anim 1s step-end infinite;
@@ -654,6 +641,11 @@ h1, h2, h3, h4, h5, h6 {
   to   { opacity: 1; transform: translateY(0); }
 }
 
+.typing-text {
+    display: inline-block;
+    min-width: 200px; /* largeur du mot final */
+}
+
 .hero-h1-small {
     display: block;
     font-size: 0.65em;
@@ -686,6 +678,7 @@ h1, h2, h3, h4, h5, h6 {
     padding: 18px 0;
     overflow: hidden;
     position: relative;
+    min-height: 60px;
 }
 
 .trust-track {
@@ -809,33 +802,7 @@ h1, h2, h3, h4, h5, h6 {
     line-height: 1.8;
 }
 
-.solution-list {
-    display: flex;
-    flex-direction: column;
-    gap: 16px;
-    margin-bottom: 40px;
-}
 
-.solution-list li {
-    display: flex;
-    align-items: flex-start;
-    gap: 14px;
-    padding: 18px 22px;
-    background: rgba(255, 255, 255, 0.9);
-    border-left: 4px solid #27ae60;
-    border-radius: 0 14px 14px 0;
-    font-size: 1.05rem;
-    color: #444;
-    line-height: 1.6;
-    transition: all 0.3s ease;
-    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.03);
-}
-
-.solution-list li:hover {
-    background: #fff;
-    transform: translateX(6px);
-    box-shadow: 0 4px 20px rgba(24, 88, 173, 0.08);
-}
 
 .solution-icon {
     font-size: 1.2rem;
@@ -877,14 +844,7 @@ h1, h2, h3, h4, h5, h6 {
     flex-direction: column;
 }
 
-.method-blocks {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 40px;
-    margin-top: 20px;
-    justify-content: space-between;
 
-}
 
 .method-block {
     background: #F4F4F4;
@@ -2273,9 +2233,6 @@ a.contact-item:hover {
         justify-content: center;
     }
 
-    .method-blocks {
-        grid-template-columns: 1fr;
-    }
 
     .offers-grid {
         grid-template-columns: 1fr 1fr;
@@ -2375,10 +2332,6 @@ a.contact-item:hover {
     }
 
     /* Method */
-    .method-blocks {
-        grid-template-columns: 1fr;
-        gap: 24px;
-    }
 
     .method-block {
         padding: 28px 22px;
@@ -2519,11 +2472,6 @@ a.contact-item:hover {
    ANIMATIONS SPÉCIALES
    ============================================ */
 
-/* Skill bars animation */
-.skill-bar-fill {
-    width: 0;
-    transition: width 1.2s cubic-bezier(0.4, 0, 0.2, 1);
-}
 
 
 /* Prefers reduced motion */
@@ -2548,29 +2496,6 @@ a.contact-item:hover {
     }
 }
 
-/* ============================================
-   PRINT STYLES
-   ============================================ */
-@media print {
-    .nav, .hero-particles, .hero-illustration,
-    .trust-banner, .parallax-layer, .cta-final {
-        display: none;
-    }
-
-    .section {
-        padding: 30px 0;
-        break-inside: avoid;
-    }
-
-    body {
-        color: #000;
-        background: #fff;
-    }
-
-    a {
-        color: #1858AD;
-    }
-}
 
 /* =========================
    Base / layout
