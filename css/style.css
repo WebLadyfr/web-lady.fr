@@ -128,6 +128,7 @@ body {
     overflow-x: hidden;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
+    text-align: justify;
 }
 
 a {
@@ -623,18 +624,21 @@ h1, h2, h3, h4, h5, h6 {
 .hero-content {
     position: relative;
     z-index: 10;
-    max-width: 700px;
+    max-width: 1200px;
     padding: 40px 24px;
     margin-left: 5%;
+    justify-items: center;
 }
 
 #hero-title {
     font-size: clamp(2.2rem, 5.5vw, 3.8rem);
     font-weight: 800;
     line-height: 1.15;
-    margin-bottom: 24px;
+    padding: 15px 24px 24px;
+    width: 100%;
     color: #1858AD;
     animation: fadeUp 0.6s ease forwards;
+    text-align: center;
 }
 
 
@@ -645,7 +649,7 @@ h1, h2, h3, h4, h5, h6 {
 
 .typing-text {
     display: inline-block;
-    min-width: 200px; /* largeur du mot final */
+    min-width: 100px;
 }
 
 .hero-h1-small {
@@ -661,6 +665,7 @@ h1, h2, h3, h4, h5, h6 {
     font-size: clamp(1rem, 2vw, 1.2rem);
     color: #555;
     line-height: 1.8;
+    padding: 0 24px;
     margin-bottom: 36px;
     max-width: 560px;
 }
@@ -702,6 +707,9 @@ h1, h2, h3, h4, h5, h6 {
     color: #1859ad;
     letter-spacing: 0.3px;
     padding: 4px 0;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
 }
 
 @keyframes trust-scroll {
@@ -788,13 +796,20 @@ h1, h2, h3, h4, h5, h6 {
    💡 SECTION SOLUTION
    ============================================ */
 .solution-section {
-    background: linear-gradient(160deg, #F4F4F4 0%, #e8f0fe 100%);
+    background: linear-gradient(160deg, #e8f0fe 0%, #ffffff 100%);
     padding: 100px 0;
 }
 
 .solution-content {
     max-width: 750px;
     margin: 0 auto;
+}
+
+.solution-card {
+    padding-bottom: 32px;
+}
+.solution-benefit-item {
+    padding: 12px 16px;
 }
 
 .solution-intro {
@@ -815,6 +830,7 @@ h1, h2, h3, h4, h5, h6 {
 
 .solution-punchline {
     text-align: center;
+    margin-top: 40px;
     padding: 28px;
     background: rgba(24, 88, 173, 0.06);
     border-radius: 16px;
@@ -836,7 +852,7 @@ h1, h2, h3, h4, h5, h6 {
    ⚙️ SECTION MÉTHODE
    ============================================ */
 .method-section {
-    background: #fff;
+    background: linear-gradient(160deg, #f4f4f4 0%, #e8f0fe 100%);
     padding: 100px 0;
 }
 
@@ -850,7 +866,7 @@ h1, h2, h3, h4, h5, h6 {
 
 
 .method-block {
-    background: #F4F4F4;
+    background: #Fff;
     border-radius: 20px;
     padding: 40px 32px;
     border: 1px solid rgba(24, 88, 173, 0.06);
@@ -1451,6 +1467,12 @@ h1, h2, h3, h4, h5, h6 {
     position: relative;
     right: -5em;
 }
+@media (max-width: 768px) {
+    .about-illustration-about {
+        max-width: 280px;
+        right: -2em;
+    }
+}
 
 .about-floating-stat {
     position: absolute;
@@ -1536,6 +1558,67 @@ h1, h2, h3, h4, h5, h6 {
 /* ============================================
    💬 SECTION TÉMOIGNAGES
    ============================================ */
+/* ============================================
+   CAROUSEL — SWIPE + LIRE LA SUITE
+   ============================================ */
+
+/* Wrapper qui masque l'overflow et reçoit les events drag */
+.carousel-wrapper {
+    overflow: hidden;
+    cursor: grab;
+    user-select: none;
+    -webkit-user-select: none;
+}
+
+.carousel-wrapper.is-dragging {
+    cursor: grabbing;
+}
+
+/* Désactive les transitions pendant le drag pour que ça suive le doigt */
+.carousel-wrapper.is-dragging .carousel-track {
+    transition: none !important;
+}
+
+/* Texte tronqué à 5 lignes */
+.testimonial-text.truncated {
+    display: -webkit-box;
+    -webkit-line-clamp: 5;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    transition: none;
+}
+
+/* Texte expanded */
+.testimonial-text.expanded {
+    display: block;
+    overflow: visible;
+    -webkit-line-clamp: unset;
+}
+
+/* Bouton Lire la suite */
+.read-more-btn {
+    background: none;
+    border: none;
+    padding: 4px 0 0;
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: var(--primary, #1858AD); /* adapte à ta couleur */
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    transition: opacity 0.2s ease;
+}
+
+.read-more-btn:hover {
+    opacity: 0.75;
+}
+
+/* Cache le bouton si le texte est court (géré en JS) */
+.read-more-btn.hidden {
+    display: none;
+}
+
 .testimonials-section {
     background: #fff;
     padding: 100px 0;
@@ -1543,7 +1626,6 @@ h1, h2, h3, h4, h5, h6 {
 
 .testimonials-carousel {
     position: relative;
-    overflow: hidden;
     margin: 0 -24px;
     padding: 20px 24px;
 }
@@ -1600,6 +1682,7 @@ h1, h2, h3, h4, h5, h6 {
     width: 48px;
     height: 48px;
     border-radius: 50%;
+    flex-shrink: 0;
     background: linear-gradient(135deg, #9FC3FA, #1858AD);
     display: flex;
     align-items: center;
@@ -1683,7 +1766,7 @@ h1, h2, h3, h4, h5, h6 {
    ❓ SECTION FAQ
    ============================================ */
 .faq-section {
-    background: linear-gradient(160deg, #F4F4F4 0%, #e8f0fe 100%);
+    background: linear-gradient(160deg, #ffffff 0%, #e8f0fe 100%);
     padding: 100px 0;
 }
 
@@ -1973,8 +2056,9 @@ a.contact-item:hover {
 /* ---- Grid 4 colonnes ---- */
 .footer-grid {
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
+    grid-template-columns: repeat(3, 1fr);
     gap: 2rem;
+    justify-content: center;
 }
 
 
@@ -2021,6 +2105,14 @@ a.contact-item:hover {
 }
 
 /* ---- Colonnes liens ---- */
+.footer-nav {
+    display: flex;
+    flex-direction: row;
+    gap: 60px;
+    padding-left: 25px;
+    justify-content: center;
+}
+
 .footer-col h3 {
     font-size: 1rem;
     font-weight: 700;

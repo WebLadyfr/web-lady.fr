@@ -255,17 +255,48 @@ document.addEventListener('DOMContentLoaded', () => {
 // ============================================
 // TESTIMONIALS CAROUSEL - OPTIMISÉ
 // ============================================
+// ============================================
+// TESTIMONIALS CAROUSEL — SWIPE + LIRE LA SUITE
+// ============================================
 const carouselTrack = document.getElementById('carouselTrack');
+const carouselWrapper = document.getElementById('carouselWrapper');
 const prevBtn = document.getElementById('carouselPrev');
 const nextBtn = document.getElementById('carouselNext');
 const carouselDots = document.querySelectorAll('.carousel-dot');
 
-if (carouselTrack && prevBtn && nextBtn) {
+if (carouselTrack && prevBtn && nextBtn && carouselWrapper) {
     let currentSlide = 0;
     const cards = Array.from(carouselTrack.querySelectorAll('.testimonial-card'));
     let cardsPerView = 3;
     let cardWidth = 0;
 
+    // ---- Lire la suite ----
+    cards.forEach(card => {
+        const text = card.querySelector('.testimonial-text');
+        const btn = card.querySelector('.read-more-btn');
+        if (!text || !btn) return;
+
+        // Cache le bouton si le texte ne déborde pas (court avis)
+        requestAnimationFrame(() => {
+            if (text.scrollHeight <= text.clientHeight + 2) {
+                btn.classList.add('hidden');
+                text.classList.remove('truncated');
+            }
+        });
+
+        btn.addEventListener('click', (e) => {
+            e.stopPropagation(); // ne pas interférer avec le drag
+            const isExpanded = text.classList.contains('expanded');
+            text.classList.toggle('expanded', !isExpanded);
+            text.classList.toggle('truncated', isExpanded);
+            btn.setAttribute('aria-expanded', String(!isExpanded));
+            btn.innerHTML = isExpanded
+                ? 'Lire la suite <span aria-hidden="true">↓</span>'
+                : 'Réduire <span aria-hidden="true">↑</span>';
+        });
+    });
+
+    // ---- Carousel ----
     function getCardsPerView() {
         if (window.innerWidth <= 640) return 1;
         if (window.innerWidth <= 1024) return 2;
@@ -289,6 +320,7 @@ if (carouselTrack && prevBtn && nextBtn) {
         updateCarousel();
     }
 
+    // ResizeObserver — pas de offsetWidth
     if ('ResizeObserver' in window && cards.length > 0) {
         const ro = new ResizeObserver(entries => {
             const width = entries[0].contentRect.width;
@@ -302,21 +334,52 @@ if (carouselTrack && prevBtn && nextBtn) {
 
     nextBtn.addEventListener('click', () => goTo(currentSlide + 1));
     prevBtn.addEventListener('click', () => goTo(currentSlide - 1));
+    carouselDots.forEach((dot, i) => dot.addEventListener('click', () => goTo(i)));
 
-    carouselDots.forEach((dot, i) => {
-        dot.addEventListener('click', () => goTo(i));
-    });
+    // ---- Drag / Swipe (mouse + touch) ----
+    let dragStartX = 0;
+    let dragCurrentX = 0;
+    let isDragging = false;
+    const DRAG_THRESHOLD = 50; // px minimum pour changer de slide
 
-    let autoPlay = setInterval(() => {
-        goTo(currentSlide < getTotalSlides() ? currentSlide + 1 : 0);
-    }, 5000);
+    function onDragStart(x) {
+        isDragging = true;
+        dragStartX = x;
+        dragCurrentX = x;
+        carouselWrapper.classList.add('is-dragging');
+    }
 
-    carouselTrack.addEventListener('mouseenter', () => clearInterval(autoPlay));
-    carouselTrack.addEventListener('mouseleave', () => {
-        autoPlay = setInterval(() => {
-            goTo(currentSlide < getTotalSlides() ? currentSlide + 1 : 0);
-        }, 5000);
-    });
+    function onDragMove(x) {
+        if (!isDragging) return;
+        dragCurrentX = x;
+    }
+
+    function onDragEnd() {
+        if (!isDragging) return;
+        isDragging = false;
+        carouselWrapper.classList.remove('is-dragging');
+
+        const delta = dragStartX - dragCurrentX;
+
+        if (Math.abs(delta) >= DRAG_THRESHOLD) {
+            if (delta > 0) {
+                goTo(currentSlide + 1); // swipe gauche → suivant
+            } else {
+                goTo(currentSlide - 1); // swipe droite → précédent
+            }
+        }
+    }
+
+    // Mouse events
+    carouselWrapper.addEventListener('mousedown', (e) => onDragStart(e.clientX));
+    carouselWrapper.addEventListener('mousemove', (e) => onDragMove(e.clientX));
+    carouselWrapper.addEventListener('mouseup', onDragEnd);
+    carouselWrapper.addEventListener('mouseleave', onDragEnd);
+
+    // Touch events
+    carouselWrapper.addEventListener('touchstart', (e) => onDragStart(e.touches[0].clientX), { passive: true });
+    carouselWrapper.addEventListener('touchmove', (e) => onDragMove(e.touches[0].clientX), { passive: true });
+    carouselWrapper.addEventListener('touchend', onDragEnd);
 }
 
     // ============================================
