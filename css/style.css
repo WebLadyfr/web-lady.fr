@@ -128,7 +128,7 @@ body {
     overflow-x: hidden;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
-    text-align: justify;
+
 }
 
 a {
@@ -254,7 +254,7 @@ h1, h2, h3, h4, h5, h6 {
     justify-content: center;
     gap: 10px;
     padding: 16px 32px;
-    border-radius: 12px;
+    border-radius: 30px;
     font-family: 'Inter', sans-serif;
     font-weight: 600;
     font-size: 1rem;
@@ -352,7 +352,10 @@ h1, h2, h3, h4, h5, h6 {
 /* ============================================
    NAVIGATION
    ============================================ */
-.nav {
+   .logo img{
+    width: 200px;
+}
+   .nav {
     position: fixed;
     top: 0;
     left: 0;
@@ -388,7 +391,7 @@ h1, h2, h3, h4, h5, h6 {
 
 .nav-link {
     padding: 8px 16px;
-    font-size: 0.9rem;
+    font-size: 1rem;
     font-weight: 500;
     color: #555;
     border-radius: 8px;
@@ -418,7 +421,7 @@ h1, h2, h3, h4, h5, h6 {
     padding: 10px 24px;
     background: linear-gradient(135deg, #1858AD, #2068c0);
     color: #fff;
-    border-radius: 10px;
+    border-radius: 30px;
     font-size: 0.9rem;
     font-weight: 600;
     transition: all 0.3s ease;
@@ -668,6 +671,28 @@ h1, h2, h3, h4, h5, h6 {
     padding: 0 24px;
     margin-bottom: 36px;
     max-width: 560px;
+    text-align: justify;
+}
+
+.hero-stat {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 36px;
+}
+
+.hero-stat-stars {
+    color: #FFB800;
+    font-size: 1.8rem;
+    letter-spacing: 3px;
+}
+
+.hero-stat-text {
+    color: #1858AD;
+    font-weight: 900;
+    text-align: center;
+    font-size: clamp(1.2rem, 2.5vw, 1.5rem);
+    margin: 0;
 }
 
 .hero-ctas {
@@ -681,7 +706,7 @@ h1, h2, h3, h4, h5, h6 {
    TRUST BANNER
    ============================================ */
 .trust-banner {
-    background: #F4F4F4;
+    background: #Fff;
     padding: 18px 0;
     overflow: hidden;
     position: relative;
@@ -776,7 +801,7 @@ h1, h2, h3, h4, h5, h6 {
     text-align: center;
     padding: 32px;
     background: linear-gradient(135deg, rgba(231, 76, 60, 0.05) 0%, rgba(231, 76, 60, 0.02) 100%);
-    border-radius: 16px;
+    border-radius: 50px;
     border: 1px solid rgba(231, 76, 60, 0.1);
 }
 
@@ -833,7 +858,7 @@ h1, h2, h3, h4, h5, h6 {
     margin-top: 40px;
     padding: 28px;
     background: rgba(24, 88, 173, 0.06);
-    border-radius: 16px;
+    border-radius: 50px;
     border: 1px solid rgba(24, 88, 173, 0.1);
 }
 
@@ -860,10 +885,14 @@ h1, h2, h3, h4, h5, h6 {
     justify-content: space-between;
     display: flex;
     gap: 50px;
-    flex-direction: column;
 }
 
-
+@media (max-width: 1024px) {
+    .method-dual {
+        flex-direction: column;
+        gap: 40px;
+    }
+}
 
 .method-block {
     background: #Fff;
@@ -871,6 +900,7 @@ h1, h2, h3, h4, h5, h6 {
     padding: 40px 32px;
     border: 1px solid rgba(24, 88, 173, 0.06);
     transition: all 0.4s ease;
+    width: 100%;
 }
 
 .method-block:hover {
@@ -1253,9 +1283,22 @@ h1, h2, h3, h4, h5, h6 {
 /* ============================================
    PORTFOLIO
    ============================================ */
-.portfolio-section {
+.portfolio-cta-section {
+    text-align: center;
+    font-size: 2rem;
+    background: linear-gradient(210deg, #9FC3FA,  #fff);
+   
+}
+.portfolio-cta h3 {
+    margin-bottom: 36px;
+}
+
+   .portfolio-section {
     background: #fff;
-    padding: 100px 0;
+
+}
+.portfolio-page .portfolio-section {
+    padding-top: 160px;
 }
 
 /* Filtres */
@@ -1302,8 +1345,10 @@ h1, h2, h3, h4, h5, h6 {
     overflow: hidden;
     background: #fff;
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.04);
-    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    transition: opacity 0.4s cubic-bezier(0.4, 0, 0.2, 1), transform 0.4s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.4s ease;
     border: 1px solid rgba(0, 0, 0, 0.04);
+    opacity: 1;
+    transform: scale(1);
 }
 
 .portfolio-card:hover {
@@ -1313,6 +1358,12 @@ h1, h2, h3, h4, h5, h6 {
 
 .portfolio-card.hidden {
     display: none;
+}
+
+.portfolio-grid .portfolio-card.filtering-out {
+    opacity: 0;
+    transform: scale(0.9);
+    pointer-events: none;
 }
 
 .portfolio-thumbnail {
@@ -1525,6 +1576,7 @@ h1, h2, h3, h4, h5, h6 {
     color: #555;
     line-height: 1.8;
     margin-bottom: 14px;
+    text-align: justify;
 }
 
 .about-highlight {
@@ -1579,20 +1631,18 @@ h1, h2, h3, h4, h5, h6 {
     transition: none !important;
 }
 
-/* Texte tronqué à 5 lignes */
+/* Texte tronqué à 5 lignes : le JS calcule la coupure au dernier mot entier
+   qui tient dans cette hauteur (jamais -webkit-line-clamp, qui peut couper
+   un mot en plein milieu) */
 .testimonial-text.truncated {
-    display: -webkit-box;
-    -webkit-line-clamp: 5;
-    -webkit-box-orient: vertical;
+    max-height: calc(1.7em * 5);
     overflow: hidden;
-    transition: none;
 }
 
 /* Texte expanded */
 .testimonial-text.expanded {
-    display: block;
+    max-height: none;
     overflow: visible;
-    -webkit-line-clamp: unset;
 }
 
 /* Bouton Lire la suite */
@@ -1654,11 +1704,19 @@ h1, h2, h3, h4, h5, h6 {
     display: flex;
     gap: 4px;
     margin-bottom: 16px;
+    font-size: 1.5rem;
+    color: #FFB800;
 }
 
 .testimonial-stars svg {
     width: 18px;
     height: 18px;
+}
+
+.testimonial-card blockquote {
+    margin: 0;
+    padding-left: 16px;
+    border-left: 3px solid #9FC3FA;
 }
 
 .testimonial-card blockquote p {
@@ -1668,8 +1726,6 @@ h1, h2, h3, h4, h5, h6 {
     font-style: italic;
     margin-bottom: 20px;
     position: relative;
-    padding-left: 16px;
-    border-left: 3px solid #9FC3FA;
 }
 
 .testimonial-author {
@@ -1849,7 +1905,7 @@ h1, h2, h3, h4, h5, h6 {
    ============================================ */
 .cta-final {
     background: linear-gradient(135deg, #1858AD 0%, #9FC3FA 100%);
-    padding: 100px 0;
+    padding: 50px 0;
     text-align: center;
     position: relative;
     overflow: hidden;
@@ -2078,6 +2134,7 @@ a.contact-item:hover {
     line-height: 1.7;
     color: rgba(255, 255, 255, 0.5);
     margin-bottom: 20px;
+    text-align: justify;
 }
 
 /* ---- Réseaux sociaux ---- */

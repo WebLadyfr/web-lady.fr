@@ -218,6 +218,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // ============================================
     const filterBtns = document.querySelectorAll('.filter-btn');
     const portfolioCards = document.querySelectorAll('.portfolio-card');
+    const portfolioHideTimers = new WeakMap();
 
     if (filterBtns.length > 0 && portfolioCards.length > 0) {
         filterBtns.forEach(btn => {
@@ -237,14 +238,25 @@ document.addEventListener('DOMContentLoaded', () => {
 
                 // Toutes les écritures ensuite
                 cardStates.forEach(({ el, visible }) => {
+                    // Annule un masquage en attente si l'état change avant la fin du délai
+                    // (évite qu'un clic rapide sur un autre filtre ne cache une carte qui doit rester visible)
+                    const pendingTimer = portfolioHideTimers.get(el);
+                    if (pendingTimer) {
+                        clearTimeout(pendingTimer);
+                        portfolioHideTimers.delete(el);
+                    }
+
                     if (visible) {
                         el.classList.remove('hidden');
-                        // Laisse le CSS gérer la transition via opacity/transform
-                        requestAnimationFrame(() => el.classList.add('visible'));
+                        // Force le reflow avant de retirer la classe pour garantir la transition
+                        requestAnimationFrame(() => el.classList.remove('filtering-out'));
                     } else {
-                        el.classList.remove('visible');
-                        // Attendre la fin de la transition CSS avant de cacher
-                        el.addEventListener('transitionend', () => el.classList.add('hidden'), { once: true });
+                        el.classList.add('filtering-out');
+                        const timer = setTimeout(() => {
+                            el.classList.add('hidden');
+                            portfolioHideTimers.delete(el);
+                        }, 400);
+                        portfolioHideTimers.set(el, timer);
                     }
                 });
             });
@@ -271,22 +283,46 @@ if (carouselTrack && prevBtn && nextBtn && carouselWrapper) {
     let cardWidth = 0;
 
     // ---- Lire la suite ----
+    // Troncature calculée mot par mot (jamais -webkit-line-clamp, qui peut
+    // couper un mot en plein milieu) : on cherche par dichotomie le nombre
+    // maximum de mots entiers qui tient dans la hauteur de 5 lignes.
     cards.forEach(card => {
         const text = card.querySelector('.testimonial-text');
         const btn = card.querySelector('.read-more-btn');
         if (!text || !btn) return;
 
-        // Cache le bouton si le texte ne déborde pas (court avis)
+        const fullText = text.textContent.trim();
+
         requestAnimationFrame(() => {
+            // Texte déjà assez court : pas besoin de troncature
             if (text.scrollHeight <= text.clientHeight + 2) {
                 btn.classList.add('hidden');
                 text.classList.remove('truncated');
+                return;
             }
+
+            const words = fullText.split(/\s+/);
+            let low = 0;
+            let high = words.length;
+
+            while (low < high) {
+                const mid = Math.ceil((low + high) / 2);
+                text.textContent = words.slice(0, mid).join(' ') + '…';
+                if (text.scrollHeight <= text.clientHeight + 2) {
+                    low = mid;
+                } else {
+                    high = mid - 1;
+                }
+            }
+
+            text.textContent = words.slice(0, low).join(' ') + '…';
+            text.dataset.truncatedText = text.textContent;
         });
 
         btn.addEventListener('click', (e) => {
             e.stopPropagation(); // ne pas interférer avec le drag
             const isExpanded = text.classList.contains('expanded');
+            text.textContent = isExpanded ? text.dataset.truncatedText : fullText;
             text.classList.toggle('expanded', !isExpanded);
             text.classList.toggle('truncated', isExpanded);
             btn.setAttribute('aria-expanded', String(!isExpanded));
@@ -323,7 +359,13 @@ if (carouselTrack && prevBtn && nextBtn && carouselWrapper) {
     // ResizeObserver — pas de offsetWidth
     if ('ResizeObserver' in window && cards.length > 0) {
         const ro = new ResizeObserver(entries => {
-            const width = entries[0].contentRect.width;
+            const entry = entries[0];
+            // contentRect exclut le padding/la bordure : on utilise borderBoxSize
+            // (largeur réellement occupée dans la mise en page) pour éviter un
+            // décalage cumulatif du carousel qui finit par rogner la dernière carte
+            const width = (entry.borderBoxSize && entry.borderBoxSize.length)
+                ? entry.borderBoxSize[0].inlineSize
+                : entry.target.getBoundingClientRect().width;
             const newCardsPerView = getCardsPerView();
             cardWidth = width + 24;
             cardsPerView = newCardsPerView;
@@ -332,8 +374,13 @@ if (carouselTrack && prevBtn && nextBtn && carouselWrapper) {
         ro.observe(cards[0]);
     }
 
-    nextBtn.addEventListener('click', () => goTo(currentSlide + 1));
-    prevBtn.addEventListener('click', () => goTo(currentSlide - 1));
+    // Boucle sur la première/dernière carte quand on dépasse une extrémité
+    nextBtn.addEventListener('click', () => {
+        goTo(currentSlide >= getTotalSlides() ? 0 : currentSlide + 1);
+    });
+    prevBtn.addEventListener('click', () => {
+        goTo(currentSlide <= 0 ? getTotalSlides() : currentSlide - 1);
+    });
     carouselDots.forEach((dot, i) => dot.addEventListener('click', () => goTo(i)));
 
     // ---- Drag / Swipe (mouse + touch) ----
