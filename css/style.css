@@ -184,7 +184,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .text-gradient-red {
-    background: linear-gradient(135deg, #c0392b 0%, #e74c3c 100%);
+    background: linear-gradient(135deg, #fc7c05e3 0%, #e74c3c 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
@@ -776,8 +776,8 @@ h1, h2, h3, h4, h5, h6 {
     align-items: flex-start;
     gap: 14px;
     padding: 16px 20px;
-    background: rgba(231, 76, 60, 0.04);
-    border-left: 4px solid #e74c3c;
+    background: rgba(252, 124, 5, 0.29);
+    border-left: 4px solid #fc7c05e3;
     border-radius: 0 12px 12px 0;
     font-size: 1.05rem;
     color: #444;
@@ -786,7 +786,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .problem-list li:hover {
-    background: rgba(231, 76, 60, 0.08);
+    background: rgba(252, 124, 5, 0.451);
     transform: translateX(6px);
 }
 
@@ -800,7 +800,7 @@ h1, h2, h3, h4, h5, h6 {
     margin-top: 40px;
     text-align: center;
     padding: 32px;
-    background: linear-gradient(135deg, rgba(231, 76, 60, 0.05) 0%, rgba(231, 76, 60, 0.02) 100%);
+    background: linear-gradient(135deg, rgba(252, 124, 5, 0.512) 0%, rgba(252, 124, 5, 0.315) 100%);
     border-radius: 50px;
     border: 1px solid rgba(231, 76, 60, 0.1);
 }
@@ -813,7 +813,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .problem-consequence strong {
-    color: #e74c3c;
+    color: #fc7c05e3;
     font-size: 1.25rem;
 }
 
@@ -835,6 +835,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 .solution-benefit-item {
     padding: 12px 16px;
+    text-align: justify;
 }
 
 .solution-intro {
@@ -920,8 +921,12 @@ h1, h2, h3, h4, h5, h6 {
 
 .method-block h3 {
     font-size: 1.5rem;
-    margin-bottom: 28px;
+    margin-bottom: 4px;
     color: #1858AD;
+}
+.method-block-header {
+    margin-bottom: 28px;
+
 }
 
 .method-steps {
@@ -973,7 +978,10 @@ h1, h2, h3, h4, h5, h6 {
 /* ============================================
    💰 OFFERS GRID - LAYOUT
    ============================================ */
-.p-offres{
+.offers-section {
+    background: linear-gradient(180deg, #f4f4f4ba 0%, #fff 100%);
+}
+   .p-offres{
     text-align: center;
     padding: 0 60px 0 60px;
     font-style: italic;
@@ -1286,8 +1294,8 @@ h1, h2, h3, h4, h5, h6 {
 .portfolio-cta-section {
     text-align: center;
     font-size: 2rem;
-    background: linear-gradient(210deg, #9FC3FA,  #fff);
-   
+    background: linear-gradient(135deg, #9fc3fa6d 0%,  #fff 100%);
+    border:#fff 1px solid;
 }
 .portfolio-cta h3 {
     margin-bottom: 36px;
@@ -2770,5 +2778,255 @@ a.contact-item:hover {
 /* Décale le contenu pour qu'il ne passe pas sous la navbar */
 .legal-page .legal-section {
     padding-top: 40px;
+}
+
+/* ============================================
+   ⭐ C.L.I.C. MENSUEL - PAGE DÉDIÉE
+   Classes propres (pas de réutilisation de .offer-card
+   dont les règles nth-child/!important sont taillées
+   pour les 5 cartes de la section Offres de la home)
+   ============================================ */
+.clic-page .clic-hero {
+    padding-top: 160px;
+    padding-bottom: 60px;
+    background: linear-gradient(160deg, #F4F4F4 0%, #e8f0fe 100%);
+    text-align: center;
+}
+
+.clic-hero-content {
+    max-width: 760px;
+    margin: 0 auto;
+}
+
+.clic-hero-content h1 {
+    font-size: clamp(2rem, 4.5vw, 3.2rem);
+    font-weight: 800;
+    margin-bottom: 24px;
+}
+
+.clic-hero-intro p {
+    font-size: 1.1rem;
+    color: #555;
+    line-height: 1.8;
+    margin-bottom: 16px;
+}
+
+.clic-hero-intro p:last-child {
+    margin-bottom: 0;
+}
+
+.clic-section-white {
+    background: #fff;
+}
+
+#formules {
+    background: linear-gradient(180deg, #f4f4f4ba 0%, #fff 100%);
+}
+
+/* Comment ça marche */
+.clic-method-block {
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+/* Les formules - grille de prix dédiée */
+.clic-pricing-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+    max-width: 1100px;
+    margin: 0 auto 40px;
+    align-items: start;
+}
+
+.clic-pricing-card {
+    background: #ffffff;
+    border-radius: 20px;
+    padding: 40px 32px;
+    text-align: center;
+    border: 1px solid rgba(24, 88, 173, 0.08);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.04);
+    transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    display: flex;
+    flex-direction: column;
+    position: relative;
+}
+
+.clic-pricing-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 16px 48px rgba(24, 88, 173, 0.12);
+}
+
+.clic-pricing-featured {
+    transform: scale(1.05);
+    z-index: 2;
+    border: 2px solid #1858AD;
+    box-shadow: 0 20px 60px rgba(24, 88, 173, 0.15), 0 0 0 4px rgba(159, 195, 250, 0.2);
+    background: linear-gradient(180deg, #ffffff 0%, #f0f6ff 100%);
+}
+
+.clic-pricing-featured:hover {
+    transform: scale(1.05) translateY(-8px);
+    box-shadow: 0 24px 64px rgba(24, 88, 173, 0.2), 0 0 0 4px rgba(159, 195, 250, 0.3);
+}
+
+.clic-pricing-badge {
+    position: absolute;
+    top: -16px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: linear-gradient(135deg, #1858AD, #3a7bd5);
+    color: #fff;
+    font-size: 0.8rem;
+    font-weight: 700;
+    padding: 8px 24px;
+    border-radius: 50px;
+    white-space: nowrap;
+    box-shadow: 0 4px 16px rgba(24, 88, 173, 0.3);
+    letter-spacing: 0.02em;
+    z-index: 3;
+}
+
+.clic-pricing-name {
+    font-size: 1.4rem;
+    font-weight: 800;
+    color: #1858AD;
+    margin-bottom: 8px;
+}
+
+.clic-pricing-featured .clic-pricing-name {
+    font-size: 1.6rem;
+}
+
+.clic-pricing-subtitle {
+    font-size: 0.9rem;
+    color: #666;
+    margin-bottom: 20px;
+    line-height: 1.5;
+}
+
+.clic-pricing-price {
+    display: flex;
+    align-items: baseline;
+    justify-content: center;
+    gap: 4px;
+    margin-bottom: 24px;
+}
+
+.clic-pricing-amount {
+    font-size: 2.2rem;
+    font-weight: 900;
+    color: #1858AD;
+    line-height: 1.1;
+}
+
+.clic-pricing-featured .clic-pricing-amount {
+    font-size: 2.8rem;
+    background: linear-gradient(135deg, #1858AD, #3a7bd5);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.clic-pricing-period {
+    font-size: 0.95rem;
+    color: #777;
+    font-weight: 600;
+}
+
+.clic-pricing-list {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 28px 0;
+    text-align: left;
+    flex-grow: 1;
+}
+
+.clic-pricing-list li {
+    padding: 8px 0;
+    font-size: 0.9rem;
+    color: #444;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.04);
+    display: flex;
+    align-items: flex-start;
+    gap: 8px;
+}
+
+.clic-pricing-list li:last-child {
+    border-bottom: none;
+}
+
+.clic-pricing-featured .clic-pricing-list li {
+    color: #333;
+    font-weight: 500;
+}
+
+/* Bloc engagement */
+.clic-engagement {
+    max-width: 720px;
+    margin: 40px auto 0;
+    text-align: center;
+    font-size: 0.95rem;
+    color: #1858AD;
+    padding: 18px 28px;
+    background: rgba(159, 195, 250, 0.1);
+    border-radius: 14px;
+    line-height: 1.7;
+}
+
+/* ============================================
+   ⭐ TEASER C.L.I.C. MENSUEL - HOME
+   ============================================ */
+.clic-teaser-section {
+    background: linear-gradient(160deg, #f4f4f4 0%, #e8f0fe 100%);
+    padding: 80px 0;
+}
+
+.clic-teaser-content {
+    max-width: 720px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.clic-teaser-content p {
+    font-size: 1.05rem;
+    color: #555;
+    line-height: 1.8;
+    margin-bottom: 16px;
+    text-align: justify;
+}
+
+.clic-teaser-price {
+    font-weight: 700;
+    color: #1858AD;
+}
+
+@media (max-width: 1024px) {
+    .clic-pricing-grid {
+        grid-template-columns: 1fr;
+        max-width: 480px;
+    }
+
+    .clic-pricing-featured {
+        transform: none;
+    }
+
+    .clic-pricing-featured:hover {
+        transform: translateY(-8px);
+    }
+}
+
+@media (max-width: 640px) {
+    .clic-hero-content h1 {
+        font-size: clamp(1.7rem, 6vw, 2.2rem);
+    }
+
+    .clic-pricing-card {
+        padding: 32px 24px;
+    }
+
+    .clic-teaser-section {
+        padding: 60px 0;
+    }
 }
 
