@@ -989,8 +989,8 @@ h1, h2, h3, h4, h5, h6 {
 
 .offers-grid {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 30px;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
     max-width: 1100px;
     margin: 0 auto 40px;
 }
@@ -1000,29 +1000,15 @@ h1, h2, h3, h4, h5, h6 {
 .offer-card:nth-child(2) { order: 1; } /* Landing → ligne 1 */
 .offer-card:nth-child(3) { order: 2; } /* Vitrine → ligne 1 centre */
 .offer-card:nth-child(4) { order: 3; } /* E-business → ligne 1 */
-.offer-card:nth-child(5) { order: 5; } /* Maintenance → ligne 2 */
 
-/* Ligne 2 : Audit + Maintenance centrées */
-.offer-card:nth-child(1) {
-    grid-column: 1 / 2;
-}
-.offer-card:nth-child(5) {
-    grid-column: 2 / 3;
-}
+
 
 /* Forcer la ligne 2 centrée avec 2 cards */
 .offers-grid {
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(4, 1fr);
     grid-template-rows: auto auto;
 }
 
-/* Audit et Maintenance sur colonnes 1-2 de la ligne 2, centrés */
-.offer-card:nth-child(1),
-.offer-card:nth-child(5) {
-    justify-self: center;
-    max-width: 340px;
-    width: 100%;
-}
 
 /* CTA centré */
 .offers-cta {
@@ -1047,7 +1033,9 @@ h1, h2, h3, h4, h5, h6 {
     display: flex;
     flex-direction: column;
     position: relative;
+    right: 17rem;
     overflow: visible;
+    width: 400px;
 }
 
 .offer-card:hover {
@@ -1245,6 +1233,7 @@ h1, h2, h3, h4, h5, h6 {
         flex: 0 1 calc(50% - 12px); /* 2 par ligne (12px = moitié du gap) */
         max-width: calc(50% - 12px);
         width: auto;
+        right: 0;
     }
 
     .offer-card.offer-popular {
@@ -1273,6 +1262,7 @@ h1, h2, h3, h4, h5, h6 {
         flex: 0 1 auto;
         width: 100%;
         max-width: 100%;
+        right: 0;
     }
 
  /* 🎯 Ordre mobile personnalisé */
