@@ -17,3 +17,10 @@
 
 [build.processing.html]
   pretty_urls = true
+
+# www -> non-www (301)
+[[redirects]]
+  from = "https://www.web-lady.fr/*"
+  to = "https://web-lady.fr/:splat"
+  status = 301
+  force = true
