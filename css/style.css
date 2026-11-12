@@ -177,7 +177,18 @@ h1, h2, h3, h4, h5, h6 {
    UTILITAIRES
    ============================================ */
 .text-gradient {
-    background: linear-gradient(135deg, #1858AD 0%, #9FC3FA 100%);
+    background: linear-gradient(135deg, #ff820de3 0%, #f56016  100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.text-orange {
+    background: #f56016;
+}
+
+.text-gradient-white {
+    background: linear-gradient(135deg, #fff 0%, #fc7c05e3 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
@@ -290,7 +301,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .btn-accent {
-    background: linear-gradient(135deg, #9FC3FA 0%, #1858AD 100%);
+    background:  #1858AD;
     color: #fff;
     box-shadow: 0 4px 20px rgba(159, 195, 250, 0.4);
 }
@@ -747,7 +758,7 @@ h1, h2, h3, h4, h5, h6 {
    😤 SECTION PROBLÈME
    ============================================ */
 .problem-section {
-    background: #fff;
+    background: linear-gradient(160deg, #9fc3fa 0%, #1858ad 100%);
     padding: 100px 0;
     min-height: 400px;
 }
@@ -759,7 +770,7 @@ h1, h2, h3, h4, h5, h6 {
 
 .problem-intro {
     font-size: 1.2rem;
-    color: #444;
+    color: #fff;
     margin-bottom: 32px;
     text-align: center;
     line-height: 1.8;
@@ -777,17 +788,17 @@ h1, h2, h3, h4, h5, h6 {
     align-items: flex-start;
     gap: 14px;
     padding: 16px 20px;
-    background: rgba(252, 124, 5, 0.29);
+    background: rgba(252, 124, 5, 0.761);
     border-left: 4px solid #fc7c05e3;
     border-radius: 0 12px 12px 0;
     font-size: 1.05rem;
-    color: #444;
+    color: #000;
     line-height: 1.6;
     transition: all 0.3s ease;
 }
 
 .problem-list li:hover {
-    background: rgba(252, 124, 5, 0.451);
+    background: rgba(252, 124, 5, 0.821);
     transform: translateX(6px);
 }
 
@@ -801,20 +812,20 @@ h1, h2, h3, h4, h5, h6 {
     margin-top: 40px;
     text-align: center;
     padding: 32px;
-    background: linear-gradient(135deg, rgba(252, 124, 5, 0.512) 0%, rgba(252, 124, 5, 0.315) 100%);
+    background: linear-gradient(135deg, rgba(252, 124, 5, 0.851) 0%, rgba(252, 124, 5, 0.811) 100%);
     border-radius: 50px;
     border: 1px solid rgba(231, 76, 60, 0.1);
 }
 
 .problem-consequence p {
     font-size: 1.15rem;
-    color: #555;
+    color: #000;
     margin-bottom: 8px;
     line-height: 1.7;
 }
 
 .problem-consequence strong {
-    color: #fc7c05e3;
+    color: #000;
     font-size: 1.25rem;
 }
 
@@ -822,8 +833,28 @@ h1, h2, h3, h4, h5, h6 {
    💡 SECTION SOLUTION
    ============================================ */
 .solution-section {
-    background: linear-gradient(160deg, #e8f0fe 0%, #ffffff 100%);
+    background: linear-gradient(160deg, #9fc3fa 0%, #9fc3fa 100%);
     padding: 100px 0;
+}
+
+.solution-section h2 {
+    color: #fff;
+}
+
+.solution-section .solution-benefit-item strong,
+.solution-section .solution-punchline strong {
+    color: #1858ad;
+}
+
+.solution-section .solution-punchline {
+    background: rgba(255, 255, 255, 0.08);
+    border-color: rgba(159, 195, 250, 0.3);
+}
+
+.solution-section .btn-primary {
+    background: #9fc3fa;
+    border-color: #9fc3fa;
+    color: #1858ad;
 }
 
 .solution-content {
@@ -839,9 +870,17 @@ h1, h2, h3, h4, h5, h6 {
     text-align: justify;
 }
 
+.solution-benefit-item p,
+.solution-section h3 {
+    font-size: 1.2rem;
+    line-height: 1.6;
+    color: #000;
+}
+
+
 .solution-intro {
-    font-size: 1.15rem;
-    color: #555;
+    font-size: 1.2rem;
+    color: #000;
     text-align: center;
     margin-bottom: 40px;
     line-height: 1.8;
@@ -866,13 +905,12 @@ h1, h2, h3, h4, h5, h6 {
 
 .solution-punchline p {
     font-size: 1.05rem;
-    color: #666;
+    color: #000;
     margin-bottom: 6px;
 }
 
 .solution-punchline strong {
     font-size: 1.3rem;
-    color: #1858AD;
 }
 
 /* ============================================
@@ -980,7 +1018,13 @@ h1, h2, h3, h4, h5, h6 {
    💰 OFFERS GRID - LAYOUT
    ============================================ */
 .offers-section {
-    background: linear-gradient(180deg, #f4f4f4ba 0%, #fff 100%);
+    background: linear-gradient(160deg, #9fc3fa 0%, #1858ad 100%);
+}
+
+.offers-section > .container > .section-header h2,
+.offers-section .p-offres,
+.offers-section .offers-price-link {
+    color: #fff;
 }
    .p-offres{
     text-align: center;
@@ -2757,19 +2801,13 @@ a.contact-item:hover {
 /* ============================================
    NAVBAR pleine sur les pages légales
 ============================================ */
-.legal-page .nav {
-    position: sticky;
-    top: 0;
-    background: rgba(255, 255, 255, 0.95);
-    backdrop-filter: blur(10px);
-    -webkit-backdrop-filter: blur(10px);
-    box-shadow: 0 2px 20px rgba(0, 0, 0, 0.08);
-}
+/* (navbar ovale flottante : voir bloc en fin de fichier) */
 
 /* Décale le contenu pour qu'il ne passe pas sous la navbar */
 .legal-page .legal-section {
     padding-top: 40px;
 }
+.legal-page { padding-top: 96px; }
 
 /* ============================================
    ⭐ C.L.I.C. MENSUEL - PAGE DÉDIÉE
@@ -3118,4 +3156,167 @@ a.contact-item:hover {
 
 @media (min-width: 1200px) {
     .nav-link { white-space: nowrap; }
+}
+
+/* ============================================
+   NAVBAR OVALE FLOTTANTE (pilule)
+   ============================================ */
+.nav,
+.legal-page .nav {
+    position: fixed;
+    top: 12px;
+    left: 12px;
+    right: 12px;
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0;
+    z-index: 1000;
+    border-radius: 999px;
+    background: rgba(255, 255, 255, 0.78) !important;
+    -webkit-backdrop-filter: blur(12px);
+    backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.7);
+    box-shadow: 0 8px 30px rgba(24, 88, 173, 0.15);
+}
+
+.nav.scrolled {
+    padding: 0;
+    box-shadow: 0 8px 30px rgba(24, 88, 173, 0.2);
+}
+
+.nav .nav-container {
+    max-width: none;
+    margin: 0;
+    padding: 8px 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.nav .logo { display: flex; align-items: center; }
+.nav .logo img { width: auto; height: 48px; }
+
+body { padding-top: 0; }
+.hero { padding-top: 110px; }
+.clic-page .clic-hero { padding-top: 170px; }
+.portfolio-page main, .price-page main { padding-top: 96px; }
+
+/* Burger -> croix */
+.nav-hamburger {
+    width: 44px;
+    height: 44px;
+    padding: 0;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+    background: none;
+    border: 0;
+    -webkit-tap-highlight-color: transparent;
+}
+.nav-hamburger.active span:nth-child(1) { transform: translateY(8.5px) rotate(45deg); }
+.nav-hamburger.active span:nth-child(2) { opacity: 0; transform: scaleX(0); }
+.nav-hamburger.active span:nth-child(3) { transform: translateY(-8.5px) rotate(-45deg); }
+
+@media (max-width: 1024px) {
+    .nav .logo img { height: 44px; }
+
+    /* Menu ouvert : carte arrondie sous la pilule (même largeur, marges 12px) */
+    .nav-menu {
+        position: absolute;
+        top: calc(100% + 8px);
+        left: 0;
+        right: 0;
+        width: auto;
+        height: auto;
+        max-height: calc(100vh - 110px);
+        overflow-y: auto;
+        padding: 16px 12px 20px;
+        border-radius: 24px;
+        background: #fff;
+        -webkit-backdrop-filter: blur(12px);
+        backdrop-filter: blur(12px);
+        border: 1px solid rgba(255, 255, 255, 0.7);
+        box-shadow: 0 12px 40px rgba(24, 89, 173, 0.18);
+        opacity: 0;
+        visibility: hidden;
+        transform: translateY(-8px);
+        transition: opacity 0.3s ease, transform 0.3s ease, visibility 0s linear 0.3s;
+        right: 0;
+    }
+    .nav-menu.open,
+    .nav-menu.active {
+        right: 0;
+        opacity: 1;
+        visibility: visible;
+        transform: none;
+        transition: opacity 0.3s ease, transform 0.3s ease;
+    }
+    .nav-menu .nav-link { font-size: 1.15rem; padding: 12px 20px; }
+    .nav-menu .nav-cta { font-size: 1rem; padding: 14px 24px; }
+}
+
+/* Bouton hero : jamais coupé */
+.hero-ctas .btn-primary { white-space: nowrap; }
+@media (max-width: 640px) {
+    .hero { padding-top: 110px; }
+    .hero-ctas .btn { max-width: 100%; padding: 14px 28px; }
+}
+
+.nav .logo { flex-shrink: 0; }
+.nav .logo img { width: auto; height: 48px; max-width: none; }
+
+/* Ruban de compétences en boucle (hero, à droite) */
+.hero-ribbon {
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    height: 260px;
+    z-index: 1;
+    pointer-events: none;
+}
+.hero { padding-bottom: 230px; }
+.hero-ribbon svg { width: 100%; height: 100%; overflow: visible; }
+.ribbon-text {
+    font-family: 'Inter', sans-serif;
+    font-size: 14px;
+    font-weight: 700;
+    letter-spacing: .10em;
+}
+
+@media (max-width: 640px) {
+    .hero { padding-bottom: 250px; }
+}
+
+/* Méthodes : au survol, la carte de gauche part à gauche, celle de droite à droite */
+@media (min-width: 1025px) {
+    .method-dual .method-block:first-child:hover { transform: translateX(-20px); }
+    .method-dual .method-block:last-child:hover { transform: translateX(20px); }
+}
+
+/* Section problème : texte à gauche, image à droite */
+@media (min-width: 1025px) {
+    .problem-content {
+        max-width: 1100px;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: auto 1fr;
+        column-gap: 64px;
+        align-items: start;
+    }
+    .problem-content .problem-text { grid-column: 2; grid-row: 1; }
+    .problem-content .problem-consequence { grid-column: 2; grid-row: 2; }
+    .problem-content .problem-visual { grid-column: 1; grid-row: 1 / 3; align-self: center; }
+    .problem-intro { text-align: left; }
+}
+.problem-visual img {
+    display: block;
+    width: 100%;
+    max-width: 520px;
+    height: auto;
+    margin: 0 auto;
+}
+@media (max-width: 1024px) {
+    .problem-visual { margin-top: 32px; }
+    .problem-visual img { max-width: 360px; }
 }

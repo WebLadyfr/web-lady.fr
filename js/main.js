@@ -71,19 +71,69 @@ document.addEventListener('DOMContentLoaded', () => {
     const navLinks = document.querySelectorAll('.nav-link');
 
     if (hamburger && navMenu) {
+        const setMenu = (open) => {
+            hamburger.classList.toggle('active', open);
+            navMenu.classList.toggle('open', open);
+            hamburger.setAttribute('aria-expanded', String(open));
+            hamburger.setAttribute('aria-label', open ? 'Fermer le menu' : 'Ouvrir le menu');
+        };
+
         hamburger.addEventListener('click', () => {
-            hamburger.classList.toggle('active');
-            navMenu.classList.toggle('open');
-            document.body.style.overflow = navMenu.classList.contains('open') ? 'hidden' : '';
+            setMenu(!navMenu.classList.contains('open'));
         });
 
-        navLinks.forEach(link => {
-            link.addEventListener('click', () => {
-                hamburger.classList.remove('active');
-                navMenu.classList.remove('open');
-                document.body.style.overflow = '';
-            });
+        navMenu.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', () => setMenu(false));
         });
+
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape' && navMenu.classList.contains('open')) {
+                setMenu(false);
+                hamburger.focus();
+            }
+        });
+    }
+
+
+    // ============================================
+    // HERO - RUBAN DE COMPETENCES EN BOUCLE
+    // ============================================
+    const ribbon = document.querySelector('.hero-ribbon');
+    if (ribbon) {
+        const path = ribbon.querySelector('#ribbonPath');
+        const textPath = ribbon.querySelector('textPath');
+        const measure = ribbon.querySelector('.ribbon-measure');
+        const phrase = 'UX · CONVERSION · SEO · SITES SUR MESURE · SÉCURITÉ RENFORCÉE · 100 % RESPONSIVE · ';
+        const reduced = window.matchMedia('(prefers-reduced-motion: reduce)');
+        let period = 0, offset = 0, previous = 0, frame = 0, visible = true;
+
+        const tick = (time) => {
+            const dt = previous ? Math.min((time - previous) / 1000, 0.05) : 0;
+            previous = time;
+            offset = (offset + dt * 30) % period;
+            textPath.setAttribute('startOffset', String(-offset));
+            frame = requestAnimationFrame(tick);
+        };
+        const sync = () => {
+            cancelAnimationFrame(frame);
+            frame = 0;
+            previous = 0;
+            if (period && visible && !document.hidden && !reduced.matches) frame = requestAnimationFrame(tick);
+        };
+        const setup = () => {
+            measure.textContent = phrase;
+            period = measure.getComputedTextLength();
+            if (!period) return;
+            textPath.textContent = phrase.repeat(Math.ceil(path.getTotalLength() / period) + 2);
+            sync();
+        };
+
+        (document.fonts ? document.fonts.ready : Promise.resolve()).then(setup);
+        reduced.addEventListener('change', sync);
+        document.addEventListener('visibilitychange', sync);
+        if ('IntersectionObserver' in window) {
+            new IntersectionObserver((entries) => { visible = entries[0].isIntersecting; sync(); }).observe(ribbon);
+        }
     }
 
 
