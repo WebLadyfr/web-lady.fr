@@ -78,15 +78,10 @@
         "itemListElement": [
           {
             "@type": "Offer",
-            "priceSpecification": {
-              "@type": "PriceSpecification",
-              "minPrice": 1500,
-              "priceCurrency": "EUR"
-            },
             "itemOffered": {
               "@type": "Service",
-              "name": "Landing page",
-              "description": "Une page, un objectif. Idéal pour lancer une offre ou présenter un projet. Livraison en 10 jours.",
+              "name": "Site Expert",
+              "description": "Site vitrine jusqu'à 5 pages qui transforme ton expertise en demandes de rendez-vous, avec 3 mois de C.L.I.C. Mensuel inclus. Livraison en 3 à 4 semaines.",
               "provider": {
                 "@id": "https://web-lady.fr/#service"
               }
@@ -94,15 +89,10 @@
           },
           {
             "@type": "Offer",
-            "priceSpecification": {
-              "@type": "PriceSpecification",
-              "minPrice": 2500,
-              "priceCurrency": "EUR"
-            },
             "itemOffered": {
               "@type": "Service",
-              "name": "Site vitrine",
-              "description": "Business présenté de façon stratégique, pages pensées pour guider vers l'action. Livraison en 3 à 4 semaines.",
+              "name": "Landing page",
+              "description": "Une page, un objectif : transformer tes visiteurs en demandes de rendez-vous. Livraison en 10 jours.",
               "provider": {
                 "@id": "https://web-lady.fr/#service"
               }
@@ -117,8 +107,8 @@
             },
             "itemOffered": {
               "@type": "Service",
-              "name": "Site e-business",
-              "description": "Site e-commerce avec tunnel de vente et paiement intégré. Livraison en 6 à 8 semaines.",
+              "name": "Site E-business sur mesure",
+              "description": "Pour vendre directement depuis ton site : boutique en ligne, espace membres, vente de formations, réservation ou paiement en ligne, intégrations API/CRM. Livraison en 6 à 8 semaines, 3 mois de maintenance inclus.",
               "provider": {
                 "@id": "https://web-lady.fr/#service"
               }
@@ -126,12 +116,10 @@
           },
           {
             "@type": "Offer",
-            "price": "200",
-            "priceCurrency": "EUR",
             "itemOffered": {
               "@type": "Service",
               "name": "Audit complet de site web",
-              "description": "Audit SEO, structure, design, contenu et performance avec plan d'action concret.",
+              "description": "Audit SEO, structure, design, contenu et performance avec plan d'action concret. Déduit de ton projet si tu signes ensuite.",
               "provider": {
                 "@id": "https://web-lady.fr/#service"
               }
@@ -165,7 +153,7 @@
           "name": "Combien de temps pour avoir mon site ?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "Landing page : 10 jours. Site vitrine : 3 à 4 semaines. Site e-business : 6 à 8 semaines. Les délais courent dès réception de tes contenus et de ton acompte."
+            "text": "Landing page : 10 jours. Site Expert : 3 à 4 semaines. Site E-business sur mesure : 6 à 8 semaines. Les délais courent dès réception de tes contenus et de ton acompte."
           }
         },
         {
@@ -173,7 +161,7 @@
           "name": "Et si j’ai déjà un site ?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "Parfait. On commence par un audit : on voit ce qu’on garde, ce qu’on améliore, et ce qu’on remplace pour améliorer la performance et la clarté de ton site."
+            "text": "Parfait. On commence par un audit : on voit ce qu’on garde, ce qu’on améliore, et ce qu’on remplace pour améliorer la performance et la clarté de ton site. Le prix de l’audit est déduit de ton projet si tu signes ensuite."
           }
         },
         {
@@ -198,6 +186,30 @@
           "acceptedAnswer": {
             "@type": "Answer",
             "text": "Je te réponds sous 48 h ouvrées."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Que comprend le Site Expert ?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Un site vitrine jusqu’à 5 pages, pensé pour transformer ton expertise en demandes de rendez-vous, et 3 mois de C.L.I.C. Mensuel inclus : je mesure, j’améliore et je te remets un rapport clair chaque mois."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Et après la livraison, qui s’occupe de mon site ?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Moi. Un site ne se livre pas, il se pilote. Avec C.L.I.C. Mensuel (190, 390 ou 690 €/mois), je suis ton site chaque mois : trafic, positions Google, conversions, et je documente tout le travail fait."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Tu proposes un site pour vendre des formations ou des produits ?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Oui, avec le Site E-business sur mesure : boutique en ligne, vente de formations, espace membres ou client, réservation ou paiement en ligne, à partir de 5 000 €."
           }
         }
       ]
@@ -227,7 +239,7 @@
                 <li><a href="#offres" class="nav-link">Offres</a></li>
                 <li><a href="#faq" class="nav-link">FAQ</a></li>
                 <li class="nav-cta-item">
-                    <a href="https://wa.me/33767018313" class="nav-cta ripple">Contact</a>
+                    <a href="https://calendly.com/weblady-web/30min" target="_blank" rel="noopener" class="nav-cta ripple">Réserver mon appel</a>
                 </li>
             </ul>
 
@@ -257,26 +269,20 @@
 
     <div class="hero-content parallax-layer" data-parallax-speed="0.08">
                 <h1 id="hero-title" class="hero-title">
-    Création de sites web <span class="text-gradient">sur-mesure </span>
-    pour Freelances et TPE <span class="text-gradient typing-text" data-text="ambitieux.">ambitieux.</span>
+                  Création de sites web <span class="text-gradient">sur-mesure</span> pour Freelances et TPE <span class="text-gradient">ambitieux.</span>
 </h1>
-
-
+                <h2 class="hero-intro">Un site, ça ne se livre pas. Ça se pilote.</h2>
                 <p class="hero-subtitle">
-                    Je suis WebLady, développeuse web. J'ai construit deux méthodes : W.E.B. pour créer ton site et C.L.I.C. pour l'optimiser, avec un seul objectif : un site clair et utile pour tes visiteurs. 
-                    Freelance, indépendant ou TPE, ton site doit progresser chaque mois.<!-- [À VALIDER : preuve datée et accord du client] --></p>
+                    Pour les consultants, coachs et formateurs : un site qui transforme ton expertise en demandes de rendez-vous, mesuré et amélioré chaque mois.</p>
 
                 <div class="hero-ctas scroll-reveal">
-                    <a href="#contact" class="btn btn-primary ripple">
-                        <span>Mon devis sous 48 h</span>
+                    <a href="https://calendly.com/weblady-web/30min" target="_blank" rel="noopener" class="btn btn-primary ripple">
+                        <span>Réserver mon appel de 30 min</span>
                     </a>
-                    <a href="#methode" class="btn btn-secondary ripple">
-                        <span>Découvrir la méthode</span>
-                    </a>
+                    <a href="#offres" class="btn btn-secondary ripple">Voir les offres</a>
                 </div>
                 <div class="hero-stat scroll-reveal">
-                    <span class="hero-stat-stars" aria-hidden="true">★★★★★</span>
-                    <p class="hero-stat-text">+15 sites réalisés</p>
+                    <span class="hero-stat-stars" role="img" aria-label="Note de 5 étoiles sur 5">★★★★★</span>
                 </div>
 
             </div>
@@ -305,24 +311,24 @@
 
                 <div class="problem-content">
                     <div class="problem-text scroll-reveal">
-                        <p class="problem-intro">Tu t'es investi dans ton business. Tu sais que t'es bon dans ce que tu fais. <strong>Mais ton site…</strong></p>
+                        <p class="problem-intro">Tu t'es investi dans ton business. Tu sais que t'es bon dans ce que tu fais. <strong>Mais aujourd'hui…</strong></p>
 
                         <ul class="problem-list">
                             <li class="scroll-reveal" data-delay="0">
                                 <span class="problem-icon" aria-hidden="true">❌</span>
-                                <span>Il est <strong>introuvable</strong> sur Google</span>
+                                <span>Tu <strong>dépends du bouche-à-oreille</strong> pour trouver de nouveaux clients</span>
                             </li>
                             <li class="scroll-reveal" data-delay="100">
                                 <span class="problem-icon" aria-hidden="true">❌</span>
-                                <span>Il ne <strong>reflète pas</strong> ton expertise</span>
+                                <span>On visite ton site et <strong>personne ne te contacte</strong></span>
                             </li>
                             <li class="scroll-reveal" data-delay="200">
                                 <span class="problem-icon" aria-hidden="true">❌</span>
-                                <span>Il laisse <strong>tes visiteurs sans réponse</strong> claire</span>
+                                <span>Ton site <strong>ne montre pas ton niveau d'expertise</strong></span>
                             </li>
                             <li class="scroll-reveal" data-delay="300">
                                 <span class="problem-icon" aria-hidden="true">❌</span>
-                                <span>Tu l'as payé mais il <strong>présente mal</strong> ton activité</span>
+                                <span>Ton site a été livré et <strong>plus personne ne s'en occupe</strong></span>
                             </li>
                         </ul>
                     </div>
@@ -485,7 +491,7 @@
             </div>
    
    <div class="portfolio-cta-subtitle" style="margin-top: 32px;"></div>
-    <a href="/portfolio.html" class="btn btn-primary ripple">
+    <a href="/portfolio.html" class="btn btn-white ripple">
         <span>Voir mes réalisations</span>
     </a>
     </div>
@@ -636,11 +642,30 @@ Je recommande vivement Weblady à toute personne recherchant un service sérieux
     </div>
 
     <div class="testimonials-cta scroll-reveal" style="margin-top: 32px;">
-      <a href="#contact" class="btn btn-primary ripple">
-        <span>Recevoir mon devis sous 48 h ouvrées</span>
-        
+      <a href="https://calendly.com/weblady-web/30min" target="_blank" rel="noopener" class="btn btn-primary ripple">
+        <span>Réserver mon appel de 30 min</span>
       </a>
     </div>
+    </div>
+  </div>
+</section>
+
+<section class="section proof-section" id="preuve" aria-labelledby="proof-title">
+  <div class="container">
+    <div class="proof-card scroll-reveal">
+      <h2 id="proof-title">Mon propre site <span class="text-gradient">comme preuve</span></h2>
+      <p class="proof-intro">Un site qui se charge vite se fait mieux trouver et se fait moins quitter. Le mien est mesuré sur PageSpeed Insights :</p>
+      <div class="proof-scores">
+        <div class="proof-score">
+          <span class="proof-score-value">100</span>
+          <span class="proof-score-label">PageSpeed desktop</span>
+        </div>
+        <div class="proof-score">
+          <span class="proof-score-value">96</span>
+          <span class="proof-score-label">PageSpeed mobile</span>
+        </div>
+      </div>
+      <p class="proof-note"><a href="https://pagespeed.web.dev/analysis?url=https%3A%2F%2Fweb-lady.fr%2F" target="_blank" rel="noopener">Vérifie par toi-même sur PageSpeed Insights</a></p>
     </div>
   </div>
 </section>
@@ -688,17 +713,26 @@ je maîtrise toute la chaîne pour construire un <strong>site web clair et bien 
                 </div>
 
                 <div class="offers-grid">
-                    <article class="offer-card scroll-reveal" data-delay="0">
-                        <div class="offer-emoji" aria-hidden="true"></div>
+                    <article class="offer-card offer-popular scroll-reveal" data-delay="0">
+                        <div class="offer-popular-badge">Recommandé</div>
                         <div class="offer-header">
-                            <h3>Audit Complet</h3>
+                            <h3>Site Expert</h3>
                             <div class="offer-price">
-                                <span class="price-amount">200€</span>
+                                <span class="price-amount price-tbc">2 500 €</span>
                             </div>
                         </div>
-                        <p class="offer-desc">Tu veux savoir ce qui cloche ? Je passe ton site au scanner : SEO, structure, design, contenu, performance.</p>
-                        <p class="offer-result"><strong>Tu repars avec un plan d'action concret.</strong></p>
-                        <a href="#contact" class="btn btn-outline btn-block ripple">Demander un audit</a>
+                        <p class="offer-result"><strong>Un site qui transforme ton expertise en demandes de rendez-vous, puis qui est piloté chaque mois.</strong></p>
+                        <p class="offer-delay">Livré en 3-4 semaines*</p>
+                        <ul class="offer-includes">
+                            <li>→ Site vitrine jusqu'à 5 pages (Accueil, Services, À-propos, Réalisations, Contact)</li>
+                            <li>→ 3 mois de C.L.I.C. Mensuel inclus</li>
+                            <li>→ Design sur-mesure</li>
+                            <li>→ SEO avancé (maillage interne, indexation Google, sitemap)</li>
+                            <li>→ Formulaires de contact</li>
+                            <li>→ Intégration Google Analytics &amp; Search Console</li>
+                            <li>→ Formation 1h incluse + PDF</li>
+                        </ul>
+                        <a href="https://calendly.com/weblady-web/30min" target="_blank" rel="noopener" class="btn btn-primary btn-block ripple">Réserver mon appel de 30 min</a>
                     </article>
 
                     <article class="offer-card scroll-reveal" data-delay="100">
@@ -706,76 +740,79 @@ je maîtrise toute la chaîne pour construire un <strong>site web clair et bien 
                         <div class="offer-header">
                             <h3>Landing Page</h3>
                             <div class="offer-price">
-                                <span class="price-from">à partir de</span>
-                                <span class="price-amount">1 500€</span>
+                                <span class="price-amount price-tbc"> 1 500 €</span>
                             </div>
                         </div>
-                        <p class="offer-desc">Une page. Un objectif. Idéal pour lancer une offre ou présenter un projet. <br>Livré en 10 jours*</p>
+                        <p class="offer-result"><strong>Une page, un objectif : transformer tes visiteurs en demandes de rendez-vous pour ton offre.</strong></p>
+                        <p class="offer-delay">Livré en 10 jours*</p>
                         <ul class="offer-includes">
                             <li>→ Page optimisée conversion (Accueil, Services, À-propos, Avis, Contact)</li>
-                            <li>→ SEO de base intégré (balises title/meta, H1/H2 optimisés, OpenGraph) </li>
+                            <li>→ SEO de base intégré (balises title/meta, H1/H2 optimisés, OpenGraph)</li>
                             <li>→ Responsive mobile-first</li>
                             <li>→ Conformité RGPD (bandeau cookies conforme, pages légales rédigées, politique de confidentialité incluse)</li>
                             <li>→ Performance et optimisation</li>
                             <li>→ Charte graphique personnalisée ou à intégrer</li>
                             <li>→ Formulaires de contact</li>
                         </ul>
-                        <a href="#contact" class="btn btn-outline btn-block ripple">Je veux ma landing page</a>
+                        <a href="https://calendly.com/weblady-web/30min" target="_blank" rel="noopener" class="btn btn-outline btn-block ripple">Réserver mon appel de 30 min</a>
                     </article>
 
-                    <article class="offer-card offer-popular scroll-reveal" data-delay="200">
-                        <div class="offer-popular-badge"> Le plus demandé</div>
-                        <div class="offer-header">
-                            <h3>Site Vitrine</h3>
-                            <div class="offer-price">
-                                <span class="price-from">à partir de</span>
-                                <span class="price-amount">2 500€</span>
-                            </div>
-                        </div>
-                        <p class="offer-desc">Ton business présenté de façon stratégique. Plusieurs pages pensées pour guider ton visiteur jusqu'au passage à l'action.<br>Livré en 3-4 semaines*</p>
-                        <ul class="offer-includes">
-                            <li>→ Design sur-mesure</li>
-                            <li>→ Jusqu'à 5 pages (Accueil, Services, À-propos, Réalisations, Contact)</li>
-                            <li>→ SEO avancé (maillage interne, indexation Google, sitemap)</li>
-                            <li>→ Formulaires de contact</li>
-                            <li>→ Intégration Google Analytics & Search Console</li>
-                            <li>→ Formation 1h incluse + PDF </li>
-                        </ul>
-                        <a href="#contact" class="btn btn-primary btn-block ripple">Je veux mon site vitrine</a>
-                    </article>
-
-                    <article class="offer-card scroll-reveal" data-delay="300">
+                    <article class="offer-card scroll-reveal" data-delay="200">
                         <div class="offer-emoji" aria-hidden="true"></div>
                         <div class="offer-header">
-                            <h3>Site E-business</h3>
+                            <h3>Site E-business sur mesure</h3>
                             <div class="offer-price">
                                 <span class="price-from">à partir de</span>
                                 <span class="price-amount">5 000€</span>
                             </div>
                         </div>
-                        <p class="offer-desc">Vends en ligne avec une boutique claire et structurée. Design, tunnel de vente, paiement : tout est pensé pour faciliter l'achat.<br>Livré en 6-8 semaines*</p>
+                        <p class="offer-result"><strong>Pour vendre directement depuis ton site.</strong><br><span class="offer-usecases">E-commerce · Formations en ligne · Espace client</span></p>
+                        <p class="offer-delay">Livré en 6-8 semaines*</p>
                         <ul class="offer-includes">
-                            <li>→ Boutique en ligne complète ou espace membre privé</li>
+                            <li>→ Boutique en ligne</li>
+                            <li>→ Espace membres</li>
+                            <li>→ Vente de formations</li>
+                            <li>→ Réservation ou paiement en ligne</li>
                             <li>→ Tunnel de vente optimisé</li>
-                            <li>→ Paiement sécurisé</li>
-                            <li>→ Gestion de stock</li>
-                            <li>→ SEO e-commerce</li>
-                            <li>→ Intégration API, CRM ou autre</li>
-                            <li>→ Analyse UX approfondie et tracking détaillé</li>
-                            <li>→ 3 mois de maintenance offerts</li>
+                            <li>→ Intégrations API / CRM</li>
+                            <li>→ 3 mois de maintenance inclus</li>
                         </ul>
-                        <a href="#contact" class="btn btn-outline btn-block ripple">Je veux mon e-shop</a>
+                        <a href="https://calendly.com/weblady-web/30min" target="_blank" rel="noopener" class="btn btn-outline btn-block ripple">Réserver mon appel de 30 min</a>
                     </article>
-                    
+
+                    <article class="offer-card scroll-reveal" data-delay="300">
+                        <div class="offer-emoji" aria-hidden="true"></div>
+                        <div class="offer-header">
+                            <h3>Audit Complet</h3>
+                            <div class="offer-price">
+                                <span class="price-amount price-tbc">390 €</span>
+                            </div>
+                        </div>
+                        <p class="offer-result"><strong>Tu repars avec un plan d'action concret pour que ton site t'apporte des rendez-vous.</strong></p>
+                        <ul class="offer-includes">
+                            <li>→ SEO, structure, design, contenu, performance</li>
+                            <li>→ Plan d'action priorisé</li>
+                            <li>→ Déduit de ton projet si tu signes ensuite</li>
+                        </ul>
+                        <a href="https://calendly.com/weblady-web/30min" target="_blank" rel="noopener" class="btn btn-outline btn-block ripple">Réserver mon appel de 30 min</a>
+                    </article>
                 </div>
-                <br>
-                    <p class="p-offres">*Les délais courent dès réception de tes contenus et de ton acompte. Textes et images optimisés, livraison clé en main pour chaque formule. Confiance, engagement et accompagnement durable : c'est la touche WebLady. 
-                        Je ne promets pas de résultats magiques : personne ne peut garantir la première place sur Google. Je garantis le travail réellement effectué, mesuré et documenté chaque mois. Tous les prix sont à titre indicatif. Un devis personnalisé te sera envoyé après notre échange pour définir tes besoins spécifiques.
-                    </p>
+
+                <p class="p-offres">*Les délais courent dès réception de tes contenus et de ton acompte. Tous les prix sont à titre indicatif. Un devis personnalisé te sera envoyé après notre échange pour définir tes besoins spécifiques.</p>
+
+                <div class="guarantee scroll-reveal">
+                    <h3>Ce que je garantis</h3>
+                    <ul class="guarantee-list">
+                        <li><strong>Délai tenu</strong>, sinon 1 mois de suivi offert.</li>
+                        <li><strong>Un rapport clair chaque mois</strong>, sinon 1 mois de suivi offert.</li>
+                        <li><strong>Tout le travail est mesuré et documenté.</strong></li>
+                    </ul>
+                    <p class="guarantee-note">Je ne garantis pas la 1re place sur Google : personne ne le peut sérieusement.</p>
+                </div>
 
                 <div class="offers-cta scroll-reveal">
-                    <a href="#contact" class="btn btn-white btn-lg ripple">
-                        <span>Recevoir mon devis sous 48 h ouvrées</span>
+                    <a href="https://calendly.com/weblady-web/30min" target="_blank" rel="noopener" class="btn btn-white btn-lg ripple">
+                        <span>Réserver mon appel de 30 min</span>
                         <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
                     </a>
                 </div>
@@ -795,7 +832,7 @@ je maîtrise toute la chaîne pour construire un <strong>site web clair et bien 
             </div>
         </section>
 
-
+     
 <section class="section faq-section" id="faq" aria-labelledby="faq-title">
   <div class="section-parallax-bg parallax-layer" data-parallax-speed="0.06"></div>
 
@@ -827,7 +864,7 @@ je maîtrise toute la chaîne pour construire un <strong>site web clair et bien 
 
         <div class="faq-answer" id="faq-answer-1" role="region" aria-labelledby="faq-question-1">
           <p>
-            Landing page : 10 jours. Site vitrine : 3 à 4 semaines. Site e-business : 6 à 8 semaines. Les délais courent dès réception de tes contenus et de ton acompte.
+            Landing page : 10 jours. Site Expert : 3 à 4 semaines. Site E-business sur mesure : 6 à 8 semaines. Les délais courent dès réception de tes contenus et de ton acompte.
           </p>
         </div>
       </div>
@@ -851,6 +888,7 @@ je maîtrise toute la chaîne pour construire un <strong>site web clair et bien 
           <p>
             Parfait. On commence par un audit : on voit ce qu’on garde, ce qu’on améliore,
             et ce qu’on remplace pour améliorer la performance et la clarté de ton site.
+            Le prix de l’audit est déduit de ton projet si tu signes ensuite.
           </p>
         </div>
       </div>
@@ -922,6 +960,72 @@ je maîtrise toute la chaîne pour construire un <strong>site web clair et bien 
           </p>
         </div>
       </div>
+
+      <div class="faq-item" data-faq-item>
+        <button
+          class="faq-question"
+          type="button"
+          aria-expanded="false"
+          aria-controls="faq-answer-6"
+          id="faq-question-6"
+        >
+          <span>Que comprend le Site Expert ?</span>
+
+          <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+            <path d="M6 9l6 6 6-6" stroke="#1858AD" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </button>
+
+        <div class="faq-answer" id="faq-answer-6" role="region" aria-labelledby="faq-question-6">
+          <p>
+            Un site vitrine jusqu’à 5 pages, pensé pour transformer ton expertise en demandes de rendez-vous, et 3 mois de C.L.I.C. Mensuel inclus : je mesure, j’améliore et je te remets un rapport clair chaque mois.
+          </p>
+        </div>
+      </div>
+
+      <div class="faq-item" data-faq-item>
+        <button
+          class="faq-question"
+          type="button"
+          aria-expanded="false"
+          aria-controls="faq-answer-7"
+          id="faq-question-7"
+        >
+          <span>Et après la livraison, qui s’occupe de mon site ?</span>
+
+          <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+            <path d="M6 9l6 6 6-6" stroke="#1858AD" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </button>
+
+        <div class="faq-answer" id="faq-answer-7" role="region" aria-labelledby="faq-question-7">
+          <p>
+            Moi. Un site ne se livre pas, il se pilote. Avec C.L.I.C. Mensuel (190, 390 ou 690 €/mois), je suis ton site chaque mois : trafic, positions Google, conversions, et je documente tout le travail fait.
+          </p>
+        </div>
+      </div>
+
+      <div class="faq-item" data-faq-item>
+        <button
+          class="faq-question"
+          type="button"
+          aria-expanded="false"
+          aria-controls="faq-answer-8"
+          id="faq-question-8"
+        >
+          <span>Tu proposes un site pour vendre des formations ou des produits ?</span>
+
+          <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+            <path d="M6 9l6 6 6-6" stroke="#1858AD" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </button>
+
+        <div class="faq-answer" id="faq-answer-8" role="region" aria-labelledby="faq-question-8">
+          <p>
+            Oui, avec le Site E-business sur mesure : boutique en ligne, vente de formations, espace membres ou client, réservation ou paiement en ligne, à partir de 5 000 €.
+          </p>
+        </div>
+      </div>
     </div>
   </div>
 </section>
@@ -930,14 +1034,14 @@ je maîtrise toute la chaîne pour construire un <strong>site web clair et bien 
 <section class="cta-final" id="cta-final" aria-labelledby="cta-final-title">
   <div class="container">
     <div class="cta-final-content">
-      <h2 id="cta-final-title">Ton site présente-t-il clairement ton activité ?</h2>
+      <h2 id="cta-final-title">Ton site te rapporte-t-il des rendez-vous ?</h2>
 
       <p>
-        Contacte-moi dès aujourd'hui pour un devis gratuit et personnalisé.
+        30 minutes pour faire le point sur ton activité et voir ce que ton site peut devenir.
       </p>
 
-      <a href="#contact" class="btn btn-primary ripple">
-        <span>Recevoir mon devis sous 48 h ouvrées</span>
+      <a href="https://calendly.com/weblady-web/30min" target="_blank" rel="noopener" class="btn btn-primary ripple">
+        <span>Réserver mon appel de 30 min</span>
       </a>
     </div>
   </div>
@@ -955,21 +1059,21 @@ je maîtrise toute la chaîne pour construire un <strong>site web clair et bien 
 
     <div class="contact-cta scroll-reveal" data-delay="100">
       <a
-        href="https://tally.so/r/RGJ00d"
+        href="https://calendly.com/weblady-web/30min"
         target="_blank"
         rel="noopener"
         class="btn btn-primary ripple"
       >
-        <span>Remplir le formulaire</span>
+        <span>Réserver mon appel de 30 min</span>
       </a>
 
       <a
-        href="https://calendly.com/weblady-web/30min"
+        href="https://tally.so/r/RGJ00d"
         target="_blank"
         rel="noopener"
         class="btn btn-outline ripple"
       >
-        <span>Prendre RDV</span>
+        <span>Remplir le formulaire</span>
       </a>
 
       <p class="small muted">Réponse sous 48 h ouvrées</p>
@@ -1085,9 +1189,9 @@ je maîtrise toute la chaîne pour construire un <strong>site web clair et bien 
                 <h3>Services</h3>
                 <ul>
                     <li><a href="#offres">Landing Page</a></li>
-                    <li><a href="#offres">Site Vitrine</a></li>
+                    <li><a href="#offres">Site Expert</a></li>
                     <li><a href="/prix-site-vitrine-avignon">Prix d'un site vitrine</a></li>
-                    <li><a href="#offres">Site E-business</a></li>
+                    <li><a href="#offres">Site E-business sur mesure</a></li>
                     <li><a href="#offres">Audit de site</a></li>
                     <li><a href="#offres">Maintenance</a></li>
                     <li><a href="/clic-mensuel.html">C.L.I.C. Mensuel</a></li>
@@ -1103,7 +1207,7 @@ je maîtrise toute la chaîne pour construire un <strong>site web clair et bien 
                     <li><a href="#methode">Ma méthode</a></li>
                     <li><a href="#portfolio">Portfolio</a></li>
                     <li><a href="#about">À propos</a></li>
-                    <li><a href="https://wa.me/33767018313" target="_blank" rel="noopener noreferrer">Contact</a></li>
+                    <li><a href="#contact">Contact</a></li>
                 </ul>
             </div>
 </div>
@@ -1127,7 +1231,7 @@ je maîtrise toute la chaîne pour construire un <strong>site web clair et bien 
                         <a href="https://share.google/n7zBsPjPr6PDurcA0" target="_blank" rel="noopener noreferrer">Voir ma fiche Google</a>
                     </li>
                 </ul>
-                <a href="#contact" class="footer-cta-btn ripple">Recevoir mon devis sous 48 h ouvrées</a>
+                <a href="https://calendly.com/weblady-web/30min" target="_blank" rel="noopener" class="footer-cta-btn ripple">Réserver mon appel de 30 min</a>
 
             </div>
 
